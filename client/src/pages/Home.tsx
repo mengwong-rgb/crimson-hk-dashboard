@@ -5,14 +5,17 @@
 import {
   AlertTriangle,
   ArrowDown,
+  Bookmark,
   BookOpen,
   Check,
   ChevronDown,
+  Clock3,
   ExternalLink,
   FileClock,
   Filter,
   Landmark,
   Menu,
+  Plus,
   Search,
   ShieldCheck,
   Sparkles,
@@ -31,9 +34,6 @@ import {
   type TabConfig,
   type TabId,
 } from "../dashboardData";
-
-const logoUrl = "/manus-storage/crimson-hk-intelligence-mark_296769d8.png";
-const overviewImage = "/manus-storage/hk-dashboard-editorial-reference_cbe945f3.png";
 
 function StatusPill({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "current" | "draft" | "critical" }) {
   return <span className={`status-pill status-${tone}`}>{children}</span>;
@@ -429,11 +429,22 @@ export default function Home() {
       {mobileNavOpen && <button className="nav-scrim" aria-label="Close navigation" onClick={() => setMobileNavOpen(false)} />}
       <aside className={`sidebar ${mobileNavOpen ? "mobile-open" : ""}`}>
         <div className="brand-block">
-          <span className="brand-seal" aria-label="Crimson HK intelligence mark"><i /></span>
-          <div><strong>Crimson Education</strong><span>Hong Kong Intelligence</span></div>
+          <span className="atlas-c-mark" aria-label="Crimson HK mark">C</span>
+          <div><strong>CRIMSON HK</strong><span>Market Intelligence</span></div>
           <button onClick={() => setMobileNavOpen(false)} aria-label="Close navigation"><X size={17} /></button>
         </div>
-        <div className="internal-label"><ShieldCheck size={14} /><span>Internal team use only</span></div>
+        <label className="sidebar-search"><Search size={15} /><input placeholder="Search HK dashboard..." onChange={(event) => setGlobalQuery(event.target.value)} value={globalQuery} /><kbd>⌘K</kbd></label>
+        {globalQuery && (
+          <div className="sidebar-search-results">
+            {searchResults.length ? searchResults.map(({ tab, section }) => (
+              <button key={`${tab.id}-${section.id}`} onClick={() => jumpTo(tab.id, section.id)}>
+                <span>{tab.shortTitle}</span><strong>{section.label}</strong>
+              </button>
+            )) : <p>No matching sections.</p>}
+          </div>
+        )}
+        <div className="sidebar-home"><Landmark size={15} /><span>HK Dashboard</span></div>
+        <p className="nav-caption">MARKET INTELLIGENCE</p>
         <nav className="primary-nav" aria-label="Dashboard tabs">
           {tabs.map((tab) => (
             <div className={`nav-group ${activeTab === tab.id ? "active" : ""}`} key={tab.id}>
@@ -442,26 +453,41 @@ export default function Home() {
             </div>
           ))}
         </nav>
-        <div className="sidebar-brief">
-          <img src={overviewImage} alt="" />
-          <span>About this dashboard</span>
-          <p>HK-specific market context for new and current team members. Draft content is never presented as confirmed fact.</p>
+        <p className="nav-caption nav-caption-secondary">REFERENCE</p>
+        <div className="reference-nav">
+          <button onClick={() => jumpTo("market", "curricula")}><BookOpen size={15} /><span>Curricula guide</span></button>
+          <button onClick={() => jumpTo("schools", "school-profiles")}><ShieldCheck size={15} /><span>School directory</span></button>
+          <button onClick={() => jumpTo("strategy", "competitors")}><Sparkles size={15} /><span>Competitor intel</span></button>
         </div>
-        <div className="sidebar-footer"><span>Content cycle</span><strong>2026 working draft</strong></div>
+        <div className="sidebar-brief">
+          <div className="sidebar-brief-icon"><FileClock size={16} /></div>
+          <span>Working draft</span>
+          <p>HK-specific content for current and new team members. Amber fields still need internal confirmation.</p>
+        </div>
+        <div className="sidebar-footer"><span>Internal access</span><strong>HK Team</strong></div>
       </aside>
 
       <main className="workspace">
         <header className="workspace-header">
-          <div><p>HK Market Intelligence</p><span>Private operating resource</span></div>
-          <div className="global-search">
+          <div className="atlas-breadcrumb"><button onClick={() => switchTab("market")}>HK Dashboard</button><span>/</span><strong>{activeConfig.shortTitle}</strong></div>
+          <div className="atlas-utility">
+            <button><Clock3 size={15} /><span>Recent</span></button>
+            <button><Plus size={15} /><span>New</span></button>
+            <button><Bookmark size={15} /><span>Bookmarks</span></button>
+            <span className="team-avatar">HK</span>
+            <strong>HK Team</strong>
+          </div>
+        </header>
+
+        <div className="context-strip"><ShieldCheck size={14} /><span>Internal Crimson Education resource</span><i />Source-backed content is labelled; incomplete fields remain visible as placeholders.</div>
+
+        <div className="workspace-body">
+          <div className="mobile-global-search global-search">
             <Search size={16} />
             <input value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Find a section" aria-label="Find a dashboard section" />
             {globalQuery && <button onClick={() => setGlobalQuery("")} aria-label="Clear search"><X size={14} /></button>}
             {globalQuery && <div className="search-results">{searchResults.length ? searchResults.map(({ tab, section }) => <button key={`${tab.id}-${section.id}`} onClick={() => jumpTo(tab.id, section.id)}><span>{tab.shortTitle}</span><strong>{section.label}</strong></button>) : <p>No matching sections.</p>}</div>}
           </div>
-        </header>
-
-        <div className="workspace-body">
           <DashboardHero tab={activeConfig} />
           {activeTab === "market" && <MarketTab />}
           {activeTab === "schools" && <SchoolTab />}
