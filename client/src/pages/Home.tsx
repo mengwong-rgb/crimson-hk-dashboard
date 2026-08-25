@@ -129,7 +129,7 @@ function MarketTab() {
             <p className="metric-date">Current figure provided for 2026</p>
             <div className="micro-metrics">
               <span><strong>2,671</strong> Form 6 graduates abroad</span>
-              <span><strong>−13%</strong> year-on-year</span>
+              <span><strong>−13%</strong> from previous year</span>
               <span><strong>−56%</strong> from the 2020 peak</span>
               <span><strong>14-year</strong> low</span>
             </div>

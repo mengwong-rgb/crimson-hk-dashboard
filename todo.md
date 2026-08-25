@@ -10,3 +10,10 @@
 - [x] Verify desktop and mobile layouts against the supplied Crimson Atlas reference.
 - [x] Run type checking, production build, and interaction tests.
 - [ ] Save and deliver a new checkpoint for user review.
+
+## Tab 1 wording correction
+
+- [x] Locate the metric label currently reading “year-on-year”.
+- [x] Replace it with “from previous year” without changing surrounding content or layout.
+- [x] Run type checking and the production build.
+- [ ] Save and deliver a new checkpoint.
