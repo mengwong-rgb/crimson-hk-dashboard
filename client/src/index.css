@@ -867,3 +867,56 @@ body { background: #fbfaf9; color: var(--ink); }
   .boarding-facts { grid-template-columns: 1fr; }
   .boarding-facts dt { border-right: 0; }
 }
+
+/* Tab 3 — user-approved applicant profile intelligence and main client streams. */
+.applicant-subsection, .distinguishing-panel { margin-top: 16px; }
+.applicant-subhead { display: grid; grid-template-columns: 46px minmax(0, 1fr); align-items: end; gap: 14px; margin-bottom: 10px; }
+.applicant-subhead > span { color: var(--crimson); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.applicant-subhead > span::after { display: block; width: 34px; height: 2px; margin-top: 7px; content: ""; background: var(--crimson); }
+.applicant-subhead p { margin: 0 0 4px; color: var(--ink-faint); font-size: 8.5px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+.applicant-subhead h3 { margin: 0; color: var(--ink); font-size: clamp(19px, 2.2vw, 25px); line-height: 1.15; }
+.applicant-insight-list { overflow: hidden; background: #fff; border: 1px solid var(--rule); border-radius: 7px; }
+.applicant-insight { display: grid; grid-template-columns: minmax(190px, .72fr) minmax(0, 1.5fr); border-bottom: 1px solid var(--rule); }
+.applicant-insight:last-child { border-bottom: 0; }
+.applicant-insight-title { position: relative; min-height: 150px; padding: 20px; background: #f3f4f7; border-right: 1px solid var(--rule); }
+.applicant-insight-title span { display: block; margin-bottom: 34px; color: #c8cbd2; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.applicant-insight-title h4 { margin: 0; color: var(--ink); font-size: 14px; line-height: 1.3; }
+.applicant-insight-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding: 20px 22px; }
+.applicant-insight-copy > small, .applicant-lever > span, .applicant-source > span { display: block; margin-bottom: 4px; color: var(--crimson); font-size: 8.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.applicant-insight-copy > p, .applicant-lever p, .applicant-source p { margin: 0; color: var(--ink); font-size: 11.5px; line-height: 1.5; }
+.applicant-lever { margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.applicant-lever p { color: var(--ink-soft); font-weight: 600; }
+.applicant-source { margin-top: 10px; padding: 9px 11px; background: #faf8f6; border-left: 2px solid var(--crimson); }
+.applicant-source > span { color: var(--ink-faint); }
+.applicant-source p { color: var(--ink-soft); font-style: italic; }
+.applicant-insight-list-compact .applicant-insight-title { min-height: 128px; }
+.distinguishing-panel { padding: 20px; background: #fff; border: 1px solid var(--rule); border-radius: 7px; }
+.distinguishing-panel .applicant-subhead { margin-bottom: 16px; }
+.distinguishing-grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; }
+.distinguishing-grid div { min-height: 125px; padding: 17px; background: #f6f7f9; }
+.distinguishing-grid span { display: block; margin-bottom: 16px; color: var(--crimson); font-size: 12px; font-weight: 800; }
+.distinguishing-grid p { margin: 0; color: var(--ink); font-size: 11.5px; font-weight: 650; line-height: 1.45; }
+.client-stream-heading { margin: 19px 0 10px; }
+.client-stream-heading > p { margin: 0 0 4px; color: var(--crimson); font-size: 9px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.client-stream-heading h3 { margin: 0; color: var(--ink); font-size: 18px; }
+.client-stream-heading span { display: block; margin-top: 4px; color: var(--ink-soft); font-size: 10.5px; }
+.client-streams article { min-height: 250px; }
+.client-streams ul { margin: 13px 0 0; padding-left: 16px; }
+.client-streams li { margin-bottom: 8px; color: var(--ink-soft); font-size: 11px; line-height: 1.45; }
+.client-streams li:first-child { color: var(--ink); font-weight: 750; }
+
+@media (max-width: 900px) {
+  .distinguishing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .applicant-insight { grid-template-columns: 1fr; }
+  .applicant-insight-title { min-height: auto; padding: 15px 17px; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .applicant-insight-title span { margin-bottom: 9px; }
+  .applicant-insight-copy { padding: 16px 17px; }
+  .applicant-subhead { grid-template-columns: 37px minmax(0, 1fr); }
+  .distinguishing-panel { padding: 16px; }
+  .distinguishing-grid { grid-template-columns: 1fr; }
+  .distinguishing-grid div { min-height: auto; }
+  .client-streams article { min-height: auto; }
+}

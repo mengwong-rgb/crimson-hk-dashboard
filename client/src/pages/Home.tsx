@@ -451,22 +451,148 @@ function StrategyTab() {
   const [competitorQuery, setCompetitorQuery] = useState("");
   const [eclQuery, setEclQuery] = useState("");
   const filteredCompetitors = competitors.filter((competitor) => `${competitor.name} ${competitor.position}`.toLowerCase().includes(competitorQuery.toLowerCase()));
+  const topApplicantCharacteristics = [
+    {
+      title: "Academic Excellence",
+      description: "Academically exceptional; additional grades or test gains may add limited value once the threshold is met.",
+      lever: "Lock academics early. Redirect effort toward specialized research or capstone execution.",
+    },
+    {
+      title: "Formulaic Profile Building",
+      description: "Profile building can become formulaic and participation-heavy rather than original.",
+      lever: "Shift from joining existing programs toward creating original IP and independent output.",
+    },
+    {
+      title: "Limited Personal Depth",
+      description: "Personal stories may lack depth or feel insufficiently personal - can be easily read as “privileged kids with no struggles”.",
+      lever: "Build greater reflection, specificity and personal insight into the narrative.",
+    },
+    {
+      title: "Limited Intellectual Depth",
+      label: "Direct web copy",
+      description: "Strong academic performance may not always translate into clear intellectual depth or an individual point of view.",
+      lever: "Develop subject-specific opinions, questions and personal intellectual insights.",
+    },
+    {
+      title: "Interview Strength",
+      description: "Top HK applicants can generally perform well in interviews.",
+      lever: "Use interviews to reinforce self-awareness, intellectual personality and authentic communication.",
+      source: "Can generally do well in interviews",
+    },
+    {
+      title: "Extracurricular Impact",
+      description: "Extracurricular breadth may be high, while leadership, independent thinking or distinctive mission remain limited.",
+      lever: "Prioritize depth, ownership, leadership and meaningful impact over activity volume.",
+    },
+    {
+      title: "Coachability",
+      description: "Students may be highly receptive to guidance and suggestions.",
+      lever: "Use coachability as an execution advantage while ensuring the final profile remains student-led.",
+    },
+    {
+      title: "Prestige Orientation",
+      description: "School choices may be heavily influenced by ranking and reputation in Hong Kong.",
+      lever: "Frame university choices around fit and opportunity as well as brand recognition.",
+    },
+  ];
+  const generalApplicantCharacteristics = [
+    {
+      title: "Strong academics + reputable school",
+      description: "Strong academics and a reputable school provide a solid baseline.",
+      lever: "Preserve academic strength while building differentiated profile depth.",
+    },
+    {
+      title: "High standardised-test focus",
+      description: "High attention to standardized testing can crowd out broader profile differentiation.",
+      lever: "Shift from score accumulation toward intentional, distinctive profile building.",
+    },
+    {
+      title: "Common / cliché EC participation",
+      description: "Extracurricular participation may follow common or cliché patterns.",
+      lever: "Develop unique themes, meaningful impact and follow-through.",
+    },
+    {
+      title: "Interview / storytelling",
+      description: "Interview and storytelling can be weaker areas.",
+      lever: "Strengthen narrative, interview and reflective communication skills.",
+    },
+  ];
+  const distinguishingTraits = [
+    "Stellar academic grades at advanced levels from a top school",
+    "High standardized test scores",
+    "National and international academic or extracurricular achievements",
+    "Excellent self-awareness and community-mindedness",
+    "Mature and insightful personal voice and narrative in application essays",
+    "Unique interests and ability to follow through",
+  ];
+  const clientStreams = [
+    {
+      title: "Local",
+      traits: [
+        "Outcome-focused & highly informed",
+        "Familiar with HK/UK/US/Canada admissions",
+        "Expect precise guidance, clear rationale and demonstrated admissions expertise are important",
+      ],
+    },
+    {
+      title: "Mainland",
+      traits: [
+        "Data-driven & structured",
+        "Pay close attention to track records across high schools and intended majors",
+        "Value measurable outcomes, clear benchmarks and detailed information",
+        "Value advisor experience and expertise",
+        "Prefer written roadmaps and clear visibility into progress",
+      ],
+    },
+    {
+      title: "Expat",
+      traits: [
+        "Student-centred & exploratory",
+        "Greater flexibility around next steps",
+        "Value student fit, individual interests, development and long-term goals alongside academic outcomes",
+      ],
+    },
+  ];
 
   return (
     <div className="tab-content">
       <section className="content-section" id="applicant-blueprint">
         <SectionHeading number="01" pattern="Profile strategic lever" title="The top-applicant regional blueprint" description="Convert the HK applicant baseline into a differentiated, credible application profile." />
-        <article className="panel lever-panel">
-          <div className="lever-row lever-head"><span>Common baseline</span><span>Status</span><span>Strategic lever</span></div>
-          {[
-            ["Strong academics + reputable school", "Strength", "Protect academic performance while building differentiated depth."],
-            ["High standardized-test focus", "Weakness", "Move from score accumulation to intentional profile construction."],
-            ["Common / cliché extracurriculars", "Weakness", "Build a distinctive theme, sustained impact and follow-through."],
-            ["Interview and storytelling", "Weakness", "Develop reflection, narrative control and communication confidence."],
-          ].map(([baseline, status, lever]) => <div className="lever-row" key={baseline}><strong>{baseline}</strong><StatusPill tone={status === "Strength" ? "current" : "critical"}>{status}</StatusPill><p>{lever}</p></div>)}
+        <div className="applicant-subsection">
+          <header className="applicant-subhead"><span>01</span><div><p>Regional pattern set</p><h3>HK Top Applicant Characteristics</h3></div></header>
+          <div className="applicant-insight-list">
+            {topApplicantCharacteristics.map((item, index) => (
+              <article className="applicant-insight" key={item.title}>
+                <div className="applicant-insight-title"><span>{String(index + 1).padStart(2, "0")}</span><h4>{item.title}</h4></div>
+                <div className="applicant-insight-copy">
+                  {item.label && <small>{item.label}</small>}
+                  <p>{item.description}</p>
+                  <div className="applicant-lever"><span>Strategic lever</span><p>{item.lever}</p></div>
+                  {item.source && <div className="applicant-source"><span>Original source — preserved</span><p>{item.source}</p></div>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="applicant-subsection">
+          <header className="applicant-subhead"><span>02</span><div><p>General baseline</p><h3>HK Applicant General Characteristics</h3></div></header>
+          <div className="applicant-insight-list applicant-insight-list-compact">
+            {generalApplicantCharacteristics.map((item, index) => (
+              <article className="applicant-insight" key={item.title}>
+                <div className="applicant-insight-title"><span>{String(index + 1).padStart(2, "0")}</span><h4>{item.title}</h4></div>
+                <div className="applicant-insight-copy"><p>{item.description}</p><div className="applicant-lever"><span>Strategic lever</span><p>{item.lever}</p></div></div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <article className="distinguishing-panel">
+          <header className="applicant-subhead"><span>03</span><div><p>Profile benchmark</p><h3>What Distinguishes a Top Applicant Profile</h3></div></header>
+          <div className="distinguishing-grid">
+            {distinguishingTraits.map((trait, index) => <div key={trait}><span>{String(index + 1).padStart(2, "0")}</span><p>{trait}</p></div>)}
+          </div>
         </article>
-        <PlaceholderCard title="Strategist validation required" description="Add HK strategist commentary on the most common top-applicant strengths, weaknesses and high-impact intervention points." />
-        <SourceNote>Hong Kong Knowledge Packet pp. 9–12. These are qualitative internal observations, not a statistical study.</SourceNote>
       </section>
 
       <section className="content-section" id="communication">
@@ -475,8 +601,9 @@ function StrategyTab() {
           {communicationRows.map(([title, text]) => <article key={title}><span>{title}</span><p>{text}</p></article>)}
         </div>
         <div className="legal-alert"><AlertTriangle size={19} /><div><span>Legal boundary directive</span><strong>Do not advise on UK fee status.</strong><p>Route complex cases to UKCISA with the relevant facts and documentation.</p></div></div>
+        <div className="client-stream-heading"><p>Main client streams</p><h3>Local, Mainland and Expat families</h3><span>Use the distinctions below to calibrate communication, reporting and strategic framing.</span></div>
         <div className="client-streams">
-          {[['Local', 'Outcome-focused, informed and highly attentive to rationale and demonstrated expertise.'], ['Mainland', 'Data-led, benchmark-aware and responsive to written roadmaps and measurable progress.'], ['Expat', 'Student-centred, exploratory and attentive to fit, interests and long-term development.']].map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}
+          {clientStreams.map((stream, index) => <article key={stream.title}><span>0{index + 1}</span><h3>{stream.title}</h3><ul>{stream.traits.map((trait) => <li key={trait}>{trait}</li>)}</ul></article>)}
         </div>
       </section>
 
@@ -495,7 +622,7 @@ function StrategyTab() {
       </section>
 
       <section className="content-section" id="ecl">
-        <SectionHeading number="04" pattern="Searchable localized resource library" title="Localized ECL opportunities" description="A structured list of HK opportunities. All destination links remain placeholders until verified." />
+        <SectionHeading number="04" pattern="Searchable localized resource library" title="Localized ECL opportunities" description="A structured list of HK opportunities." />
         <label className="search-field ecl-search"><Search size={16} /><input value={eclQuery} onChange={(event) => setEclQuery(event.target.value)} placeholder="Search opportunities" /></label>
         <div className="ecl-grid">
           {eclGroups.map((group) => {

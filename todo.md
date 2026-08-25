@@ -63,3 +63,23 @@
 - [x] Run type checking and a production build.
 - [x] Visually verify the revised Tab 2 on desktop and mobile.
 - [ ] Save and deliver a new review checkpoint.
+
+## Tab 3 annotated revision — tab3prompt.pdf
+
+- [x] Extract every screenshot, annotation, and written instruction from the PDF.
+- [x] Map each instruction to the exact Tab 3 component or content block.
+- [x] Identify all elements explicitly marked to remain unchanged.
+- [x] Delete the Strategist validation required yellow placeholder.
+- [x] Delete the Hong Kong Knowledge Packet source-note block from the applicant section.
+- [x] Replace the current blueprint table with eight supplied HK Top Applicant Characteristics.
+- [x] Add the four supplied HK Applicant General Characteristics in the same overall section.
+- [x] Add the six-item What Distinguishes a Top Applicant Profile grid.
+- [x] Label Local, Mainland, and Expat as the main client streams.
+- [x] Expand each client stream with the user’s complete supplied characteristics.
+- [x] Preserve the entire competitor-intelligence section unchanged.
+- [x] Preserve the localized ECL section while removing only the placeholder-link verification sentence.
+- [x] Implement only the requested Tab 3 edits without independently shortening or rewriting content.
+- [x] Confirm Tabs 1 and 2 remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Visually verify the revised Tab 3 on desktop and mobile.
+- [ ] Save and deliver a new review checkpoint.
