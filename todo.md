@@ -118,3 +118,22 @@ Rendered verification: all four Common BU cards display `HK case-study link adde
 Rendered verification: the Localized ECL section now shows **54 active external links** across Medicine (12), STEM (19), Humanities / Art / Social Sciences (17), and Summer Institutes (6). Every resource displays `View resource`; no `Link pending` buttons remain in this section.
 
 Interaction verification: searching `HKUST` correctly returns four STEM resources and two Summer Institutes resources, each with its matching external URL. The mobile full-page capture confirms the expanded list remains readable and responsive. Type checking, the production build, and runtime-log checks passed without errors.
+
+## Tab 2 follow-up adjustments — hkstudentcasestudiesss(1).docx
+
+- [x] Extract every screenshot, annotation, written instruction, and embedded URL from the attachment.
+- [x] Map each instruction to the exact Tab 2 component or content block.
+- [x] Identify all elements explicitly marked to remain unchanged.
+- [x] Remove the current burgundy HK student case-study banner from Section 02.
+- [x] Add a standalone Section 03 — Hong Kong Student Case Studies after the boarding-school section.
+- [x] Add all thirteen supplied student and admission-outcome records exactly as written.
+- [x] Add a `View case study` placeholder button for every student row.
+- [x] Add the `Internal reference only — please do not share externally` notice.
+- [x] Renumber Common BU services in HK to Section 04.
+- [x] Add the new case-study section to Tab 2 navigation and the section overview.
+- [x] Preserve the school directory, boarding-school content, and four active Common BU service links unchanged.
+- [x] Implement only the requested Tab 2 adjustments without independently shortening or rewriting content.
+- [x] Confirm Tabs 1 and 3 remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Visually and interactively verify the revised Tab 2 on desktop and mobile.
+- [ ] Save and deliver a new review checkpoint.

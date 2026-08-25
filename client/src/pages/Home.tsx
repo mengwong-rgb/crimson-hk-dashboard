@@ -359,6 +359,21 @@ function SchoolTab() {
     { letter: "R", name: "Rise", url: "https://www.canva.com/design/DAHTSCueyV4/dZVpbyHNQ8AY6wHV7RrhMg/edit" },
     { letter: "I", name: "Indigo", url: "https://docs.google.com/spreadsheets/d/1sHMYBCYr5LuMPArG_RpEu2xxbpiOefP8WqTBUaZOJCI/edit?gid=0#gid=0" },
   ];
+  const studentCaseStudies = [
+    { student: "Rae Liu", admittedTo: "UC Berkeley" },
+    { student: "Jeremy C.", admittedTo: "Cambridge" },
+    { student: "Kelly C.", admittedTo: "UCL, Leicester, HKU & UST" },
+    { student: "Samson P.", admittedTo: "UChicago" },
+    { student: "Elden Y.", admittedTo: "Imperial & UCL" },
+    { student: "Alexander Y.", admittedTo: "Cornell & KCL" },
+    { student: "Alfred M.", admittedTo: "Yale, UPenn, Brown" },
+    { student: "Alexander L.", admittedTo: "UC Berkeley, NYU & UCL" },
+    { student: "Everie", admittedTo: "Brown" },
+    { student: "Joel", admittedTo: "Oxford" },
+    { student: "Cynthia", admittedTo: "Brown" },
+    { student: "Michael", admittedTo: "Stanford" },
+    { student: "Billy", admittedTo: "UC Berkeley" },
+  ];
 
   return (
     <div className="tab-content">
@@ -440,11 +455,29 @@ function SchoolTab() {
             <div className="boarding-analysis"><section><h4><Check size={14} /> Strength of students</h4><ul><li>Strong academic depth and subject mastery</li><li>Strong preparation for rigorous university-level study</li><li>High independence, discipline and time-management skills</li><li>Strong co-curricular exposure across leadership, sport, arts and service</li><li>Well prepared for UK university applications and academically focused pathways</li></ul></section><section className="boarding-weakness"><h4><AlertTriangle size={14} /> Weakness of students</h4><ul><li>Academic profile may be stronger than the extracurricular profile needed for US admissions</li><li>Early subject specialisation can reduce academic breadth for US applications</li><li>Less familiarity with US-style personal branding and holistic admissions</li><li>Activities may need stronger evidence of individual impact, initiative and leadership</li><li>Need to translate UK achievements and qualifications clearly for US admissions readers</li></ul></section></div>
           </article>
         </div>
-        <article className="case-study-cta"><div><span>Hong Kong Student Case Studies</span><h3>View the full HK student case-study library</h3><p>The destination link will be added when the case-study page is ready.</p></div><button onClick={() => placeholderLink("HK student full case studies")}>View HK student full case studies <ExternalLink size={14} /></button></article>
+      </section>
+
+      <section className="content-section" id="student-case-studies">
+        <SectionHeading number="03" pattern="Internal outcome reference" title="Hong Kong Student Case Studies" description="A concise index of HK student outcomes and the corresponding internal case-study records." />
+        <div className="case-study-internal-note"><AlertTriangle size={17} /><strong>Internal reference only — please do not share externally</strong></div>
+        <div className="case-study-table-panel">
+          <table className="case-study-table">
+            <thead><tr><th>HK Student</th><th>Admitted to</th><th>Case Study Link</th></tr></thead>
+            <tbody>
+              {studentCaseStudies.map((item) => (
+                <tr key={item.student}>
+                  <th scope="row">{item.student}</th>
+                  <td>{item.admittedTo}</td>
+                  <td><button className="case-study-link-button" onClick={() => placeholderLink(`${item.student} case study`)}>View case study <ExternalLink size={12} /></button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section className="content-section" id="services">
-        <SectionHeading number="03" pattern="Service reference cards" title="Common BU services in HK" description="" />
+        <SectionHeading number="04" pattern="Service reference cards" title="Common BU services in HK" description="" />
         <div className="service-grid">
           {serviceLinks.map(({ letter, name, url }) => <article className="service-card" key={name}><span>{letter}</span><div><StatusPill tone="current">HK case-study link added</StatusPill><h3>{name}</h3><a className="service-case-button" href={url} target="_blank" rel="noopener noreferrer">View HK case studies <ExternalLink size={12} /></a></div></article>)}
         </div>
