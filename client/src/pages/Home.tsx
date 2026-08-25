@@ -352,8 +352,6 @@ function SchoolTab() {
     { student: "Alexander L.", admittedTo: "UC Berkeley, NYU & UCL" },
     { student: "Everie", admittedTo: "Brown" },
     { student: "Joel", admittedTo: "Oxford" },
-    { student: "Cynthia", admittedTo: "Brown" },
-    { student: "Michael", admittedTo: "Stanford" },
     { student: "Billy", admittedTo: "UC Berkeley" },
   ];
 

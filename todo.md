@@ -150,3 +150,12 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify desktop and mobile presentation plus runtime logs.
 - [ ] Save and deliver a new checkpoint.
+
+## Tab 2 case-study row removal
+
+- [x] Remove Cynthia from the Hong Kong Student Case Studies dataset.
+- [x] Remove Michael from the Hong Kong Student Case Studies dataset.
+- [x] Confirm the remaining eleven students, their outcomes, and all other dashboard content remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify the revised table in the rendered Tab 2.
+- [ ] Save and deliver a new checkpoint.
