@@ -102,3 +102,19 @@ Verified mapping:
 - Rise → `https://www.canva.com/design/DAHTSCueyV4/dZVpbyHNQ8AY6wHV7RrhMg/edit`
 
 Rendered verification: all four Common BU cards display `HK case-study link added` and expose the exact mapped URLs as external anchors with new-tab safety attributes. The Google Sheets and Canva endpoints resolve to their expected domains; access remains subject to the destination documents’ sharing and login permissions.
+
+## Localized ECL external links — LocalECLs.docx
+
+- [x] Extract every resource name, category, and URL from the document.
+- [x] Match each document entry to the exact existing Tab 3 ECL resource.
+- [x] Update the ECL data structure to store names and URLs safely.
+- [x] Replace matched `Link pending` buttons with external `View resource` links opening in a new tab.
+- [x] Preserve any unmatched resources as clearly labelled pending links. No unmatched resources remained.
+- [x] Confirm no other dashboard content changes.
+- [x] Run type checking and a production build.
+- [x] Verify category counts, ECL search, rendered link destinations, and runtime logs.
+- [ ] Save and deliver a new checkpoint.
+
+Rendered verification: the Localized ECL section now shows **54 active external links** across Medicine (12), STEM (19), Humanities / Art / Social Sciences (17), and Summer Institutes (6). Every resource displays `View resource`; no `Link pending` buttons remain in this section.
+
+Interaction verification: searching `HKUST` correctly returns four STEM resources and two Summer Institutes resources, each with its matching external URL. The mobile full-page capture confirms the expanded list remains readable and responsive. Type checking, the production build, and runtime-log checks passed without errors.

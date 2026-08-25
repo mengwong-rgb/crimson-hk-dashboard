@@ -632,9 +632,9 @@ function StrategyTab() {
         <label className="search-field ecl-search"><Search size={16} /><input value={eclQuery} onChange={(event) => setEclQuery(event.target.value)} placeholder="Search opportunities" /></label>
         <div className="ecl-grid">
           {eclGroups.map((group) => {
-            const items = group.items.filter((item) => item.toLowerCase().includes(eclQuery.toLowerCase()));
+            const items = group.items.filter((item) => item.name.toLowerCase().includes(eclQuery.toLowerCase()));
             if (!items.length) return null;
-            return <details className="ecl-card" key={group.title} open={!eclQuery}><summary><div><span>{group.title}</span><small>{items.length} resources</small></div><ChevronDown size={17} /></summary><ul>{items.map((item) => <li key={item}><span>{item}</span><button onClick={() => toast.info("Link placeholder", { description: "Add the verified internal or public URL before use." })}><ExternalLink size={12} /> Link pending</button></li>)}</ul></details>;
+            return <details className="ecl-card" key={group.title} open={!eclQuery}><summary><div><span>{group.title}</span><small>{items.length} resources</small></div><ChevronDown size={17} /></summary><ul>{items.map((item) => <li key={item.name}><span>{item.name}</span><a href={item.url} target="_blank" rel="noopener noreferrer"><ExternalLink size={12} /> View resource</a></li>)}</ul></details>;
           })}
         </div>
       </section>
