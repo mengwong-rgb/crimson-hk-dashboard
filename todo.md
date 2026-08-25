@@ -83,3 +83,22 @@
 - [x] Run type checking and a production build.
 - [x] Visually verify the revised Tab 3 on desktop and mobile.
 - [ ] Save and deliver a new review checkpoint.
+
+## Common BU service case-study links — commonBUURL.docx
+
+- [x] Extract the Capstone, Delta, Rise, and Indigo URLs from the document.
+- [x] Verify each service name is matched to the correct URL.
+- [x] Replace the four Tab 2 placeholder buttons with external links opening in a new tab.
+- [x] Confirm no other Tab 2 content or dashboard sections change.
+- [x] Run type checking and a production build.
+- [x] Test all four service links in the rendered dashboard.
+- [ ] Save and deliver a new checkpoint.
+
+Verified mapping:
+
+- Capstone → `https://docs.google.com/spreadsheets/d/1-5cCMCWaZPJdKIdzdWcP7DIftYgqvkhykZR9sZyJwy4/edit?gid=0#gid=0`
+- Indigo → `https://docs.google.com/spreadsheets/d/1sHMYBCYr5LuMPArG_RpEu2xxbpiOefP8WqTBUaZOJCI/edit?gid=0#gid=0`
+- Delta → `https://www.canva.com/design/DAHTSHjrUKE/7IJruwNRJQnXYDj_lEfeaA/edit`
+- Rise → `https://www.canva.com/design/DAHTSCueyV4/dZVpbyHNQ8AY6wHV7RrhMg/edit`
+
+Rendered verification: all four Common BU cards display `HK case-study link added` and expose the exact mapped URLs as external anchors with new-tab safety attributes. The Google Sheets and Canva endpoints resolve to their expected domains; access remains subject to the destination documents’ sharing and login permissions.

@@ -353,6 +353,12 @@ function SchoolTab() {
   }), [query, schoolType, curriculum]);
   const selectedSchool = filteredSchools.find((school) => school.name === selectedSchoolName) ?? filteredSchools[0] ?? null;
   const placeholderLink = (label: string) => toast.info("Link placeholder", { description: `Add the ${label} URL when it is available.` });
+  const serviceLinks = [
+    { letter: "C", name: "Capstone", url: "https://docs.google.com/spreadsheets/d/1-5cCMCWaZPJdKIdzdWcP7DIftYgqvkhykZR9sZyJwy4/edit?gid=0#gid=0" },
+    { letter: "D", name: "Delta", url: "https://www.canva.com/design/DAHTSHjrUKE/7IJruwNRJQnXYDj_lEfeaA/edit" },
+    { letter: "R", name: "Rise", url: "https://www.canva.com/design/DAHTSCueyV4/dZVpbyHNQ8AY6wHV7RrhMg/edit" },
+    { letter: "I", name: "Indigo", url: "https://docs.google.com/spreadsheets/d/1sHMYBCYr5LuMPArG_RpEu2xxbpiOefP8WqTBUaZOJCI/edit?gid=0#gid=0" },
+  ];
 
   return (
     <div className="tab-content">
@@ -440,7 +446,7 @@ function SchoolTab() {
       <section className="content-section" id="services">
         <SectionHeading number="03" pattern="Service reference cards" title="Common BU services in HK" description="" />
         <div className="service-grid">
-          {[["C", "Capstone"], ["D", "Delta"], ["R", "Rise"], ["I", "Indigo"]].map(([letter, name]) => <article className="service-card" key={name}><span>{letter}</span><div><StatusPill tone="draft">HK case-study link pending</StatusPill><h3>{name}</h3><button className="service-case-button" onClick={() => placeholderLink(`${name} HK student case studies`)}>View HK case studies <ExternalLink size={12} /></button></div></article>)}
+          {serviceLinks.map(({ letter, name, url }) => <article className="service-card" key={name}><span>{letter}</span><div><StatusPill tone="current">HK case-study link added</StatusPill><h3>{name}</h3><a className="service-case-button" href={url} target="_blank" rel="noopener noreferrer">View HK case studies <ExternalLink size={12} /></a></div></article>)}
         </div>
       </section>
     </div>
