@@ -149,12 +149,36 @@ function MarketTab() {
             </div>
             <details className="editorial-disclosure">
               <summary>Why outbound demand is declining <ChevronDown size={15} /></summary>
-              <div>
-                <p>Four factors recur in the source material: demographic change, strong local universities, more regional pathways, and the financial burden of overseas study.</p>
-                <p>Local curriculum and political changes also sit alongside visa pathways offered by the UK, Canada and Australia.</p>
+              <div className="disclosure-points">
+                <p><strong>Demographic shift:</strong> A rise in students from mainland China, who prefer local institutions over traditional overseas destinations, has shifted demographics.</p>
+                <p><strong>Elite Local Options:</strong> Hong Kong universities offer globally recognized, high-quality education in key fields.</p>
+                <p><strong>Diversified Pathways:</strong> Students have access to a wider range of local and regional, including mainland Chinese, programs.</p>
+                <p><strong>High Financial Burden:</strong> Rising overseas costs, including tuition and living expenses, make the subsidized local university system more attractive.</p>
               </div>
             </details>
-            <SourceNote>Hong Kong Knowledge Packet, pp. 2–3. Historical figures are not presented as current metrics.</SourceNote>
+            <details className="editorial-disclosure macro-disclosure">
+              <summary>Macroeconomic Push and Pull Factors Driving Outbound Study <ChevronDown size={15} /></summary>
+              <div className="macro-factor-grid">
+                <section>
+                  <h4>Local push factors</h4>
+                  <ul>
+                    <li>The change of local curriculum (replacing the subject “liberal studies” with “citizenship and social development, which includes new elements on patriotism, national development and lawfulness)</li>
+                    <li>Introduction of the National Security Law: New visa schemes from the UK, Canada and Australia in response to the push of the National Security Law</li>
+                  </ul>
+                </section>
+                <section>
+                  <h4>International pull factors</h4>
+                  <h5>The UK</h5>
+                  <ul>
+                    <li>The British National (Overseas) visa scheme, applicable to Hongkongers aged 18 to 25 who do not possess the special status, but whose parents do</li>
+                    <li>Hongkongers can apply to live and work in Britain and, after six years, apply for citizenship</li>
+                    <li>As of 2026, more than 240,000 Hongkongers have successfully applied</li>
+                  </ul>
+                  <h5>Canada</h5>
+                  <ul><li>A 3-year work permit for recent Hong Kong graduates</li></ul>
+                </section>
+              </div>
+            </details>
           </article>
 
           <article className="panel persona-panel">
@@ -162,20 +186,20 @@ function MarketTab() {
             <h3>High-net-worth local / expat parent portfolio</h3>
             <p className="lead-copy">Families are often highly informed, ranking-aware and demanding of visible strategic value.</p>
             <div className="persona-snapshot">
-              <div><span>Typical stage</span><strong>Grade 9–11 / Year 10–12</strong></div>
+              <div><span>Core audience</span><strong>Grade 9–11 / Year 10–12</strong></div>
               <div><span>Primary intent</span><strong>Overseas university pathways</strong></div>
               <div><span>Service expectation</span><strong>High-touch, proactive guidance</strong></div>
             </div>
             <div className="takeaway-block">
-              <p className="mini-label">What is different in HK?</p>
+              <p className="mini-label">Profile highlights</p>
               <ul className="check-list">
-                <li><Check size={14} /> Strong awareness of UK admissions from early-stage conversations.</li>
-                <li><Check size={14} /> Parents may have studied abroad and ask detailed admissions questions.</li>
-                <li><Check size={14} /> Families focus on overall and major-specific university rankings.</li>
-                <li><Check size={14} /> Some students move to overseas boarding schools from Form 3–5 or earlier.</li>
+                <li><Check size={14} /> Students often move to overseas boarding schools around Form 3–5 or earlier.</li>
+                <li><Check size={14} /> High performers in top international schools, expat families, and Mainland transfers seeking international education in HK.</li>
+                <li><Check size={14} /> High focus on overall and major-specific university rankings.</li>
+                <li><Check size={14} /> Parents often studied abroad and ask detailed technical questions during pre-sales.</li>
+                <li><Check size={14} /> Families expect elite results and view Crimson as a bridge to top-tier universities.</li>
               </ul>
             </div>
-            <SourceNote>Hong Kong Knowledge Packet p. 14; APAC UK Strategy Country Profile, HK pp. 2–3.</SourceNote>
           </article>
         </div>
       </section>
@@ -208,7 +232,6 @@ function MarketTab() {
               </tbody>
             </table>
           </div>
-          <SourceNote>Hong Kong Knowledge Packet p. 5. Benchmarks are internal guidance, not guarantees.</SourceNote>
         </article>
 
         <article className="panel age-panel">
@@ -217,8 +240,15 @@ function MarketTab() {
           </div>
           <div className="table-scroll">
             <table className="data-table age-table">
-              <thead><tr><th>Track</th>{[12, 13, 14, 15, 16, 17].map((age) => <th key={age}>Age {age}</th>)}</tr></thead>
-              <tbody>{ageAlignment.map((row) => <tr key={row.track}><th scope="row">{row.track}</th>{row.values.map((value) => <td key={value}>{value}</td>)}</tr>)}</tbody>
+              <thead><tr><th>Age</th>{ageAlignment.map((row) => <th key={row.track}>{row.track}</th>)}</tr></thead>
+              <tbody>
+                {[12, 13, 14, 15, 16, 17].map((age, ageIndex) => (
+                  <tr key={age}>
+                    <th scope="row">Age {age}</th>
+                    {ageAlignment.map((row) => <td key={`${row.track}-${age}`}>{row.values[ageIndex]}</td>)}
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
         </article>
@@ -232,30 +262,64 @@ function MarketTab() {
           description="The operational bottleneck is the overlap between UK, US and HK application systems."
         />
         <article className="timeline-alert">
-          <div className="alert-heading"><AlertTriangle size={18} /><div><span>High-intensity window</span><strong>October → November</strong></div></div>
-          <div className="timeline-grid">
-            <span className="timeline-label">UK</span><div className="timeline-line"><i style={{ left: "22%" }}><b>15 Oct</b><small>Oxbridge + Med</small></i><i style={{ left: "94%" }}><b>13 Jan</b><small>Main UCAS</small></i></div>
-            <span className="timeline-label">US</span><div className="timeline-line"><i style={{ left: "52%" }}><b>1 Nov</b><small>Early round</small></i></div>
-            <span className="timeline-label">HK</span><div className="timeline-line"><i style={{ left: "58%" }}><b>13–26 Nov</b><small>CUHK / HKUST / HKU</small></i></div>
+          <div className="timeline-header-row">
+            <div className="alert-heading"><AlertTriangle size={18} /><div><span>Combined admissions timeline</span><strong>October 2025 → August 2026</strong></div></div>
+            <div className="timeline-legend"><span><i className="legend-dot international" />International / Non-JUPAS</span><span><i className="legend-dot jupas" />JUPAS</span></div>
+          </div>
+          <div className="timeline-scroll">
+            <div className="timeline-grid timeline-grid-extended">
+              <span className="timeline-label">UK</span>
+              <div className="timeline-line">
+                <i className="timeline-point international-marker marker-top" style={{ left: "9%" }}><b>15 Oct 2025</b><small>Oxbridge + Med</small></i>
+                <i className="timeline-point international-marker" style={{ left: "63%" }}><b>13 Jan 2026</b><small>Main UCAS</small></i>
+              </div>
+              <span className="timeline-label">US</span>
+              <div className="timeline-line"><i className="timeline-point international-marker" style={{ left: "18%" }}><b>1 Nov 2025</b><small>Early round</small></i></div>
+              <span className="timeline-label">HK</span>
+              <div className="timeline-line hk-timeline-line">
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "2%" }}><b>9 Oct 2025</b><small>JUPAS opens</small></i>
+                <i className="timeline-point international-marker" style={{ left: "27%" }}><b>13 Nov 2025</b><small>CUHK early</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "34%" }}><b>20 Nov 2025</b><small>HKUST first round</small></i>
+                <i className="timeline-point international-marker" style={{ left: "41%" }}><b>26 Nov 2025</b><small>HKU early round</small></i>
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "48%" }}><b>3 Dec 2025</b><small>JUPAS deadline · 5 PM</small></i>
+                <i className="timeline-point jupas-marker" style={{ left: "57%" }}><b>2 Jan 2026</b><small>DSE editing</small></i>
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "75%" }}><b>22 Apr 2026</b><small>Late / account reactivation</small></i>
+                <i className="timeline-point jupas-marker" style={{ left: "82%" }}><b>27 May 2026</b><small>Choice reorder · 5 PM</small></i>
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "91%" }}><b>15 Jul 2026</b><small>Recheck results</small></i>
+                <i className="timeline-point jupas-marker" style={{ left: "98%" }}><b>5 Aug 2026</b><small>Main-round offers</small></i>
+              </div>
+            </div>
           </div>
           <p>The same student may need to coordinate essays, documents, counsellor references and separate portals at the same time.</p>
         </article>
 
+        <div className="local-pathway-intro">
+          <Landmark size={17} />
+          <div><span>Applying to Hong Kong local universities</span><p>Students apply through either JUPAS or separate Non-JUPAS university portals depending on the curriculum they study.</p></div>
+        </div>
         <div className="gateway-grid">
           <article className="gateway-card">
             <span className="gateway-index">A</span>
             <p className="mini-label">Centralized local route</p>
             <h3>JUPAS</h3>
-            <dl><dt>Who uses it</dt><dd>Students following the local HK curriculum.</dd><dt>Mechanism</dt><dd>A centralized university-application system.</dd><dt>Watch-out</dt><dd>Competitive local entry and DSE pressure can shape overseas planning.</dd></dl>
+            <dl><dt>Who uses it</dt><dd>Students following the local HKDSE curriculum.</dd><dt>How to apply</dt><dd>Create one JUPAS account, select and rank programme choices, submit the application, and update choices during the permitted stages of the cycle.</dd><dt>Local route</dt><dd>The application can cover participating Hong Kong universities, including HKU, CUHK and HKUST.</dd><dt>Watch-out</dt><dd>Programme ordering, HKDSE results, interviews and programme-specific requirements can all affect the final outcome.</dd></dl>
           </article>
           <article className="gateway-card gateway-alt">
             <span className="gateway-index">B</span>
             <p className="mini-label">Individual university route</p>
             <h3>Non-JUPAS</h3>
-            <dl><dt>Who uses it</dt><dd>International and non-local-curriculum applicants.</dd><dt>Mechanism</dt><dd>Separate university portals; no single HK equivalent to Common App or UCAS.</dd><dt>Watch-out</dt><dd>Medicine, dentistry and law may add tests and interviews.</dd></dl>
+            <dl><dt>Who uses it</dt><dd>Students following IB, A-Level, AP, US High School Diploma or other non-HKDSE curricula.</dd><dt>How to apply</dt><dd>Apply separately through each university’s own application portal; there is no single HK equivalent to Common App or UCAS for this route.</dd><dt>Local route</dt><dd>Submit separate applications to HKU, CUHK, HKUST and any other chosen local universities.</dd><dt>Watch-out</dt><dd>Deadlines and document requirements differ by university, while medicine, dentistry and law may add tests and interviews.</dd></dl>
           </article>
         </div>
-        <SourceNote>Hong Kong Knowledge Packet pp. 7–8. Dates shown in the source are cycle-specific and should be revalidated annually.</SourceNote>
+        <article className="panel local-ranking-panel">
+          <div className="table-intro"><div><span className="mini-label">Local university reference</span><h3>Hong Kong local university ranking</h3></div></div>
+          <div className="table-scroll">
+            <table className="data-table local-ranking-table">
+              <thead><tr><th>University</th><th>Ranking</th></tr></thead>
+              <tbody><tr><th scope="row">HKU</th><td>11</td></tr><tr><th scope="row">CUHK</th><td>18</td></tr><tr><th scope="row">HKUST</th><td>33</td></tr></tbody>
+            </table>
+          </div>
+        </article>
       </section>
     </div>
   );

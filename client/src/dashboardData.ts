@@ -69,6 +69,13 @@ export const tabs: TabConfig[] = [
 
 export const curriculumRows = [
   {
+    label: "HK client prevalence",
+    ib: "45%",
+    alevel: "35%",
+    ap: "15%",
+    dse: "5%",
+  },
+  {
     label: "Core structure",
     ib: "TOK, EE and CAS plus six subjects, normally 3 HL + 3 SL. Ambitious students may take 4 HL + 2 SL.",
     alevel:
@@ -82,13 +89,6 @@ export const curriculumRows = [
     alevel: "A*–E at A-Level, with external assessment and possible resits.",
     ap: "School GPA plus annual AP examinations graded 1–5.",
     dse: "Levels 1–5, with 5* and 5** distinctions; public examinations plus school-based assessment.",
-  },
-  {
-    label: "HK client prevalence",
-    ib: "45%",
-    alevel: "35%",
-    ap: "15%",
-    dse: "5%",
   },
   {
     label: "Best fit",
@@ -109,7 +109,7 @@ export const curriculumRows = [
     ib: "ISF Academy; Victoria Shanghai Academy",
     alevel: "Harrow; St. Paul's Convent; Kellett",
     ap: "Hong Kong International School",
-    dse: "Placeholder — examples to be confirmed",
+    dse: "St. Paul's Co-educational College; Diocesan Girls' School; Diocesan Boys' School; St. Paul’s Convent School",
   },
 ];
 
