@@ -40,3 +40,26 @@
 - [x] Run type checking and a production build.
 - [x] Visually verify the revised Tab 1 on desktop and mobile.
 - [ ] Save and deliver a new review checkpoint.
+
+## Tab 2 annotated revision — tab2prompt.docx
+
+- [x] Extract every screenshot, annotation, and written instruction from the document.
+- [x] Map each instruction to the exact Tab 2 component or content block.
+- [x] Identify all elements explicitly marked to remain unchanged.
+- [x] Replace the school-card grid with a two-panel searchable feeder-school directory.
+- [x] Add International / Local school-type segmentation.
+- [x] Add curriculum filters for IB, A-Levels, AP, and HKDSE.
+- [x] Build all sixteen international-school records and four local-school records from the supplied data.
+- [x] Show academic strength, extracurricular environment, and teacher guidance on ECL in the selected-school Overview.
+- [x] Show counsellors, counselling environment, guidance start, curriculum, primary target, students, and highflyers in the selected-school detail panel.
+- [x] Add the linked View IB Results button only for IB-capable schools.
+- [x] Replace US and UK boarding-school placeholders with the supplied data blocks.
+- [x] Add the Hong Kong Student Case Studies placeholder CTA after the boarding-school blocks.
+- [x] Remove the BU-services explanatory sentence requested by the user.
+- [x] Add one placeholder case-study CTA to each Capstone, Delta, Rise, and Indigo service tile.
+- [x] Remove the entire Proprietary asset execution section from Tab 2.
+- [x] Implement only the requested Tab 2 edits without independently shortening or rewriting content.
+- [x] Confirm Tabs 1 and 3 remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Visually verify the revised Tab 2 on desktop and mobile.
+- [ ] Save and deliver a new review checkpoint.

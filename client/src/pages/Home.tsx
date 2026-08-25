@@ -29,11 +29,11 @@ import {
   competitors,
   curriculumRows,
   eclGroups,
-  schools,
   tabs,
   type TabConfig,
   type TabId,
 } from "../dashboardData";
+import { feederSchools, ibResultsUrl, type SchoolType } from "../schoolDirectoryData";
 
 function StatusPill({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "current" | "draft" | "critical" }) {
   return <span className={`status-pill status-${tone}`}>{children}</span>;
@@ -65,7 +65,7 @@ function SectionHeading({
       <div>
         <p className="section-pattern">{pattern}</p>
         <h2>{title}</h2>
-        <p>{description}</p>
+        {description && <p>{description}</p>}
       </div>
     </header>
   );
@@ -81,6 +81,14 @@ function PlaceholderCard({ title, description }: { title: string; description: s
         <p>{description}</p>
       </div>
     </article>
+  );
+}
+
+function RatingStars({ rating }: { rating: number }) {
+  return (
+    <span className="rating-stars" aria-label={`${rating} out of 5 stars`}>
+      <b>{"★".repeat(rating)}</b><i>{"★".repeat(5 - rating)}</i>
+    </span>
   );
 }
 
@@ -327,72 +335,112 @@ function MarketTab() {
 
 function SchoolTab() {
   const [query, setQuery] = useState("");
-  const [track, setTrack] = useState("All");
-  const [expanded, setExpanded] = useState(false);
-  const filteredSchools = useMemo(() => schools.filter((school) => {
-    const matchesTrack = track === "All" || school.tracks.includes(track) || (track === "Draft" && school.draft);
-    const haystack = `${school.name} ${school.pathway} ${school.note}`.toLowerCase();
-    return matchesTrack && haystack.includes(query.toLowerCase());
-  }), [query, track]);
-  const visibleSchools = expanded ? filteredSchools : filteredSchools.slice(0, 9);
+  const [schoolType, setSchoolType] = useState<SchoolType>("International");
+  const [curriculum, setCurriculum] = useState("All");
+  const [selectedSchoolName, setSelectedSchoolName] = useState(feederSchools[0].name);
+  const curriculumFilters = [
+    { label: "All", value: "All" },
+    { label: "IB", value: "IB" },
+    { label: "A-Levels", value: "A-Level" },
+    { label: "AP", value: "AP" },
+    { label: "HKDSE", value: "HKDSE" },
+  ];
+  const filteredSchools = useMemo(() => feederSchools.filter((school) => {
+    const matchesType = school.type === schoolType;
+    const matchesCurriculum = curriculum === "All" || school.curricula.some((item) => item === curriculum || item.includes(curriculum));
+    const haystack = `${school.name} ${school.curricula.join(" ")} ${school.primaryTarget} ${school.academicStrength} ${school.extracurricularEnvironment} ${school.teacherGuidance}`.toLowerCase();
+    return matchesType && matchesCurriculum && haystack.includes(query.toLowerCase());
+  }), [query, schoolType, curriculum]);
+  const selectedSchool = filteredSchools.find((school) => school.name === selectedSchoolName) ?? filteredSchools[0] ?? null;
+  const placeholderLink = (label: string) => toast.info("Link placeholder", { description: `Add the ${label} URL when it is available.` });
 
   return (
     <div className="tab-content">
       <section className="content-section" id="school-profiles">
         <SectionHeading
           number="01"
-          pattern="Searchable school profile matrix"
-          title="Institutional profiles by track"
-          description="Use this as a briefing layer before deeper internal research or school-specific strategy."
+          pattern="Searchable feeder-school intelligence"
+          title="Institutional profiles by school type and curriculum"
+          description="Select a school to review its academic, extracurricular and counselling environment."
         />
-        <div className="context-banner"><Sparkles size={16} /><p><strong>Coverage note:</strong> more priority schools still need sales-team verification. Draft cards are intentionally visible so the final information architecture is already in place.</p></div>
-        <div className="directory-toolbar">
-          <label className="search-field"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search schools or notes" /></label>
-          <div className="filter-row" aria-label="Filter by curriculum"><Filter size={14} />{["All", "IB", "A-Level", "AP", "DSE", "ESF", "Draft"].map((item) => <button className={track === item ? "active" : ""} onClick={() => setTrack(item)} key={item}>{item}</button>)}</div>
-          <span className="result-count">{filteredSchools.length} schools</span>
-        </div>
-        <div className="school-grid">
-          {visibleSchools.map((school) => (
-            <article className={`school-card ${school.draft ? "school-draft" : ""}`} key={school.name}>
-              <div className="school-card-top"><div>{school.tracks.map((item) => <span className={`track ${item.toLowerCase().replace("-", "")}`} key={item}>{item}</span>)}</div>{school.draft && <StatusPill tone="draft">Draft</StatusPill>}</div>
-              <h3>{school.name}</h3>
-              <p className="school-pathway">{school.pathway}</p>
-              <p>{school.note}</p>
-              <div className="school-stat"><span>Crimson HK all-time students</span><strong>{school.students}</strong></div>
-            </article>
+        <div className="school-type-switch" aria-label="Filter by school type">
+          {(["International", "Local"] as SchoolType[]).map((item) => (
+            <button className={schoolType === item ? "active" : ""} onClick={() => { setSchoolType(item); setCurriculum("All"); setQuery(""); }} key={item}>
+              {item} Schools <span>{feederSchools.filter((school) => school.type === item).length}</span>
+            </button>
           ))}
         </div>
-        {filteredSchools.length === 0 && <div className="empty-state"><Search size={20} /><strong>No school profiles found</strong><span>Try a broader term or reset the curriculum filter.</span></div>}
-        {filteredSchools.length > 9 && <button className="text-button" onClick={() => setExpanded(!expanded)}>{expanded ? "Show fewer profiles" : `Show all ${filteredSchools.length} profiles`} <ArrowDown size={14} className={expanded ? "rotate" : ""} /></button>}
+        <div className="directory-toolbar directory-toolbar-v2">
+          <label className="search-field"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search schools or notes" /></label>
+          <div className="filter-row" aria-label="Filter by curriculum"><Filter size={14} />{curriculumFilters.map((item) => <button className={curriculum === item.value ? "active" : ""} onClick={() => setCurriculum(item.value)} key={item.value}>{item.label}</button>)}</div>
+          <span className="result-count">{filteredSchools.length} schools</span>
+        </div>
+        {selectedSchool ? (
+          <div className="school-directory-layout">
+            <aside className="school-list-panel" aria-label="Feeder school list">
+              <div className="school-list-head"><span>{schoolType} schools</span><strong>{filteredSchools.length}</strong></div>
+              <div className="school-list-scroll">
+                {filteredSchools.map((school) => (
+                  <button className={selectedSchool.name === school.name ? "active" : ""} onClick={() => setSelectedSchoolName(school.name)} key={school.name}>
+                    <span>{school.name}</span>
+                    <small>{school.curricula.join(" / ")} · {school.primaryTarget}</small>
+                  </button>
+                ))}
+              </div>
+            </aside>
+            <article className="school-detail-panel">
+              <header className="school-detail-header">
+                <div>
+                  <div className="school-detail-tags">{selectedSchool.curricula.map((item) => <span className={`track ${item.toLowerCase().replaceAll("-", "").replaceAll(" ", "")}`} key={item}>{item}</span>)}</div>
+                  <h3>{selectedSchool.name}</h3>
+                  <p>{selectedSchool.type} School · Primary target: {selectedSchool.primaryTarget}</p>
+                </div>
+                {selectedSchool.curricula.includes("IB") && <a className="external-cta" href={ibResultsUrl} target="_blank" rel="noreferrer">View IB Results <ExternalLink size={13} /></a>}
+              </header>
+              <div className="school-metric-grid">
+                <div><span>Crimson HK students</span><strong>{selectedSchool.students}</strong></div>
+                <div><span>Highflyers</span><strong>{selectedSchool.highflyers}</strong></div>
+                <div><span>Counsellors</span><strong>{selectedSchool.counsellors}</strong></div>
+                <div><span>Guidance starts</span><strong>{selectedSchool.guidanceStarts}</strong></div>
+              </div>
+              <div className="school-meta-grid">
+                <div><span>Counselling environment</span><p>{selectedSchool.counsellingEnvironment}</p></div>
+                <div><span>Curriculum</span><p>{selectedSchool.curricula.join(" / ")}</p></div>
+                <div><span>Primary target</span><p>{selectedSchool.primaryTarget}</p></div>
+              </div>
+              <div className="school-overview-head"><span>Overview</span><p>Academic and extracurricular environment</p></div>
+              <div className="school-overview-grid">
+                <section><div><span>Academic strength</span><RatingStars rating={selectedSchool.academicRating} /></div><p>{selectedSchool.academicStrength}</p></section>
+                <section><div><span>Extracurricular environment</span><RatingStars rating={selectedSchool.extracurricularRating} /></div><p>{selectedSchool.extracurricularEnvironment}</p></section>
+                <section><div><span>Teacher guidance on ECL</span><RatingStars rating={selectedSchool.teacherGuidanceRating} /></div><p>{selectedSchool.teacherGuidance}</p></section>
+              </div>
+            </article>
+          </div>
+        ) : <div className="empty-state"><Search size={20} /><strong>No school profiles found</strong><span>Try a broader term or reset the curriculum filter.</span></div>}
         <SourceNote>APAC UK Strategy Country Profile, Hong Kong pp. 5–8. Internal observations require periodic verification.</SourceNote>
       </section>
 
       <section className="content-section" id="boarding">
-        <SectionHeading number="02" pattern="Pipeline trackers" title="US & UK boarding-school pipelines" description="The final content is not yet available; the modules below preserve the planned decision structure." />
-        <div className="placeholder-grid">
-          <PlaceholderCard title="US boarding-school pipeline" description="Add common schools, HK client volume, common strengths / weaknesses, application stages and an approved anonymized case study." />
-          <PlaceholderCard title="UK boarding-school pipeline" description="Add common schools, HK client volume, entry-year patterns, family decision factors and the Motherboard-approved case study." />
+        <SectionHeading number="02" pattern="Boarding-school comparison" title="US & UK boarding-school pipelines" description="Compare common schools, HK student volume, strengths and application watch-outs." />
+        <div className="boarding-grid">
+          <article className="boarding-card">
+            <div className="boarding-card-head"><span>US</span><div><p className="mini-label">Boarding pathway</p><h3>US Boarding School</h3></div></div>
+            <dl className="boarding-facts"><dt>Most common US Boarding School</dt><dd>The Hotchkiss School, Phillips Exeter Academy</dd><dt>Crimson HK Students Number</dt><dd><strong>24</strong></dd><dt>Highflyers</dt><dd><strong>11</strong></dd></dl>
+            <div className="boarding-analysis"><section><h4><Check size={14} /> Strength of students</h4><ul><li>Strong academic preparation and intellectual confidence</li><li>Strong discussion, communication and critical-thinking skills</li><li>Broad extracurricular exposure across leadership, sport, arts and service</li><li>High independence and maturity from the boarding-school environment</li><li>Familiar with the US college admissions process and holistic applications</li></ul></section><section className="boarding-weakness"><h4><AlertTriangle size={14} /> Weakness of students</h4><ul><li>Harder to stand out within a highly competitive applicant pool</li><li>Strong school support can make applications look similar to peers</li><li>Activities may be broad but lack a distinctive personal spike</li><li>Need a clear individual narrative beyond the boarding-school brand</li><li>High-achieving peer environment can increase pressure around grades and admissions</li></ul></section></div>
+          </article>
+          <article className="boarding-card">
+            <div className="boarding-card-head"><span>UK</span><div><p className="mini-label">Boarding pathway</p><h3>UK Boarding School</h3></div></div>
+            <dl className="boarding-facts"><dt>Most common UK Boarding School</dt><dd>Brighton College, Tonbridge School, Eton College, Dulwich College, Caterham School</dd><dt>Crimson HK Students Number</dt><dd><strong>143</strong></dd><dt>Highflyers</dt><dd><strong>60</strong></dd></dl>
+            <div className="boarding-analysis"><section><h4><Check size={14} /> Strength of students</h4><ul><li>Strong academic depth and subject mastery</li><li>Strong preparation for rigorous university-level study</li><li>High independence, discipline and time-management skills</li><li>Strong co-curricular exposure across leadership, sport, arts and service</li><li>Well prepared for UK university applications and academically focused pathways</li></ul></section><section className="boarding-weakness"><h4><AlertTriangle size={14} /> Weakness of students</h4><ul><li>Academic profile may be stronger than the extracurricular profile needed for US admissions</li><li>Early subject specialisation can reduce academic breadth for US applications</li><li>Less familiarity with US-style personal branding and holistic admissions</li><li>Activities may need stronger evidence of individual impact, initiative and leadership</li><li>Need to translate UK achievements and qualifications clearly for US admissions readers</li></ul></section></div>
+          </article>
         </div>
+        <article className="case-study-cta"><div><span>Hong Kong Student Case Studies</span><h3>View the full HK student case-study library</h3><p>The destination link will be added when the case-study page is ready.</p></div><button onClick={() => placeholderLink("HK student full case studies")}>View HK student full case studies <ExternalLink size={14} /></button></article>
       </section>
 
       <section className="content-section" id="services">
-        <SectionHeading number="03" pattern="Service reference cards" title="Common BU services in HK" description="The service structure is confirmed, while HK-specific positioning and case material remain pending." />
+        <SectionHeading number="03" pattern="Service reference cards" title="Common BU services in HK" description="" />
         <div className="service-grid">
-          {[['C', 'Capstone', 'Case study planned'], ['D', 'Delta', 'Case study planned'], ['R', 'Rise', 'No case study planned'], ['I', 'Indigo', 'No case study planned']].map(([letter, name, note]) => <article className="service-card" key={name}><span>{letter}</span><div><StatusPill tone="draft">Pending HK content</StatusPill><h3>{name}</h3><p>{note}</p></div></article>)}
-        </div>
-      </section>
-
-      <section className="content-section" id="asset-plan">
-        <SectionHeading number="04" pattern="Execution plan + counselling environment" title="Proprietary asset execution" description="A future operating plan for HK-specific assets, informed by how strongly each school already supports university applications." />
-        <div className="placeholder-grid">
-          <PlaceholderCard title="Objective & key assets" description="Define the asset objective, owner, target audience, priority school set, deliverable format and execution status." />
-          <article className="panel counselling-snapshot">
-            <p className="mini-label">Available source-backed snapshot</p>
-            <h3>Schools with structured guidance environments</h3>
-            <div className="snapshot-list">
-              {[["CIS", "Five counsellors; established university preparation"], ["ISF Academy", "Structured Grade 9–12 guidance"], ["CDNIS", "Four university counsellors; support begins around Grade 9"], ["CKY", "Eight counsellors working in stable pairs"]].map(([name, note]) => <div key={name}><Check size={14} /><span><strong>{name}</strong>{note}</span></div>)}
-            </div>
-          </article>
+          {[["C", "Capstone"], ["D", "Delta"], ["R", "Rise"], ["I", "Indigo"]].map(([letter, name]) => <article className="service-card" key={name}><span>{letter}</span><div><StatusPill tone="draft">HK case-study link pending</StatusPill><h3>{name}</h3><button className="service-case-button" onClick={() => placeholderLink(`${name} HK student case studies`)}>View HK case studies <ExternalLink size={12} /></button></div></article>)}
         </div>
       </section>
     </div>
@@ -462,7 +510,9 @@ function StrategyTab() {
 }
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<TabId>("market");
+  const requestedTab = new URLSearchParams(window.location.search).get("tab");
+  const initialTab: TabId = requestedTab === "schools" || requestedTab === "strategy" ? requestedTab : "market";
+  const [activeTab, setActiveTab] = useState<TabId>(initialTab);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [globalQuery, setGlobalQuery] = useState("");
   const activeConfig = tabs.find((tab) => tab.id === activeTab) ?? tabs[0];

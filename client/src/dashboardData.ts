@@ -47,7 +47,6 @@ export const tabs: TabConfig[] = [
       { id: "school-profiles", label: "School profiles" },
       { id: "boarding", label: "Boarding pipelines" },
       { id: "services", label: "BU services" },
-      { id: "asset-plan", label: "Asset execution" },
     ],
   },
   {
