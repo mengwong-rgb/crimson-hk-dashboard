@@ -1,6 +1,6 @@
 /**
- * Editorial Intelligence Console — clear, source-aware, HK-first internal dashboard.
- * The page uses a persistent navigation rail, concise briefing cards and explicit draft states.
+ * Crimson HK Market Intelligence — final internal dashboard experience.
+ * The page uses a persistent navigation rail and concise briefing cards.
  */
 import {
   AlertTriangle,
@@ -11,7 +11,6 @@ import {
   ChevronDown,
   Clock3,
   ExternalLink,
-  FileClock,
   Filter,
   Landmark,
   Menu,
@@ -35,7 +34,7 @@ import {
 } from "../dashboardData";
 import { feederSchools, ibResultsUrl, type SchoolType } from "../schoolDirectoryData";
 
-function StatusPill({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "current" | "draft" | "critical" }) {
+function StatusPill({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "current" | "critical" }) {
   return <span className={`status-pill status-${tone}`}>{children}</span>;
 }
 
@@ -71,19 +70,6 @@ function SectionHeading({
   );
 }
 
-function PlaceholderCard({ title, description }: { title: string; description: string }) {
-  return (
-    <article className="placeholder-card">
-      <div className="placeholder-icon"><FileClock size={17} /></div>
-      <div>
-        <StatusPill tone="draft">Content placeholder</StatusPill>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </article>
-  );
-}
-
 function RatingStars({ rating }: { rating: number }) {
   return (
     <span className="rating-stars" aria-label={`${rating} out of 5 stars`}>
@@ -99,10 +85,6 @@ function DashboardHero({ tab }: { tab: TabConfig }) {
         <div className="eyebrow-line"><span>{tab.eyebrow}</span><i /></div>
         <h1>{tab.title}</h1>
         <p>{tab.summary}</p>
-        <div className="hero-status">
-          <StatusPill tone="current"><Check size={12} /> Current structure</StatusPill>
-          <StatusPill tone="draft"><FileClock size={12} /> Draft fields marked</StatusPill>
-        </div>
       </div>
       <aside className="hero-briefing" aria-label="Sections in this tab">
         <div className="hero-briefing-head"><span>In this tab</span><strong>{tab.sections.length} sections</strong></div>
@@ -234,7 +216,7 @@ function MarketTab() {
                   <tr key={row.label}>
                     <th scope="row">{row.label}</th>
                     <td>{row.ib}</td><td>{row.alevel}</td><td>{row.ap}</td>
-                    <td className={row.dse.startsWith("Placeholder") ? "draft-cell" : ""}>{row.dse}</td>
+                    <td>{row.dse}</td>
                   </tr>
                 ))}
               </tbody>
@@ -352,7 +334,7 @@ function SchoolTab() {
     return matchesType && matchesCurriculum && haystack.includes(query.toLowerCase());
   }), [query, schoolType, curriculum]);
   const selectedSchool = filteredSchools.find((school) => school.name === selectedSchoolName) ?? filteredSchools[0] ?? null;
-  const placeholderLink = (label: string) => toast.info("Link placeholder", { description: `Add the ${label} URL when it is available.` });
+  const showUnavailableCaseStudy = (label: string) => toast.info("Case study link unavailable", { description: `${label} will open when its internal URL is added.` });
   const serviceLinks = [
     { letter: "C", name: "Capstone", url: "https://docs.google.com/spreadsheets/d/1-5cCMCWaZPJdKIdzdWcP7DIftYgqvkhykZR9sZyJwy4/edit?gid=0#gid=0" },
     { letter: "D", name: "Delta", url: "https://www.canva.com/design/DAHTSHjrUKE/7IJruwNRJQnXYDj_lEfeaA/edit" },
@@ -468,7 +450,7 @@ function SchoolTab() {
                 <tr key={item.student}>
                   <th scope="row">{item.student}</th>
                   <td>{item.admittedTo}</td>
-                  <td><button className="case-study-link-button" onClick={() => placeholderLink(`${item.student} case study`)}>View case study <ExternalLink size={12} /></button></td>
+                  <td><button className="case-study-link-button" onClick={() => showUnavailableCaseStudy(`${item.student} case study`)}>View case study <ExternalLink size={12} /></button></td>
                 </tr>
               ))}
             </tbody>
@@ -739,11 +721,6 @@ export default function Home() {
           <button onClick={() => jumpTo("schools", "school-profiles")}><ShieldCheck size={15} /><span>School directory</span></button>
           <button onClick={() => jumpTo("strategy", "competitors")}><Sparkles size={15} /><span>Competitor intel</span></button>
         </div>
-        <div className="sidebar-brief">
-          <div className="sidebar-brief-icon"><FileClock size={16} /></div>
-          <span>Working draft</span>
-          <p>HK-specific content for current and new team members. Amber fields still need internal confirmation.</p>
-        </div>
         <div className="sidebar-footer"><span>Internal access</span><strong>HK Team</strong></div>
       </aside>
 
@@ -759,7 +736,7 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="context-strip"><ShieldCheck size={14} /><span>Internal Crimson Education resource</span><i />Source-backed content is labelled; incomplete fields remain visible as placeholders.</div>
+        <div className="context-strip"><ShieldCheck size={14} /><span>Internal Crimson Education resource</span><i />HK market intelligence for authorized team use.</div>
 
         <div className="workspace-body">
           <div className="mobile-global-search global-search">
@@ -774,7 +751,7 @@ export default function Home() {
           {activeTab === "strategy" && <StrategyTab />}
         </div>
 
-        <footer className="site-footer"><span>Crimson Education Hong Kong</span><p>Internal use only. Source notes and placeholders are retained to prevent draft content from being mistaken for verified guidance.</p></footer>
+        <footer className="site-footer"><span>Crimson Education Hong Kong</span><p>Internal use only. Prepared for Crimson Education HK team members.</p></footer>
       </main>
     </div>
   );

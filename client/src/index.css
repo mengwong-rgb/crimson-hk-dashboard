@@ -599,7 +599,7 @@ body { background: #fbfaf9; color: var(--ink); }
 .sidebar-brief-icon { display: flex; grid-row: 1 / span 2; align-items: center; justify-content: center; width: 31px; height: 31px; color: var(--amber); background: #fff; border: 1px solid var(--amber-rule); border-radius: 5px; }
 .sidebar-brief > span { padding: 0; color: #705026; font-size: 10px; letter-spacing: .08em; }
 .sidebar-brief p { margin: 3px 0 0; color: #7f6d54; font-size: 10.5px; }
-.sidebar-footer { color: #8c8585; background: #fbfaf9; border-top: 1px solid var(--rule); }
+.sidebar-footer { margin-top: auto; color: #8c8585; background: #fbfaf9; border-top: 1px solid var(--rule); }
 .sidebar-footer span { color: #9a9393; }
 .sidebar-footer strong { color: #665f5f; }
 

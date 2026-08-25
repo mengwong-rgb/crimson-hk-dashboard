@@ -137,3 +137,16 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Visually and interactively verify the revised Tab 2 on desktop and mobile.
 - [ ] Save and deliver a new review checkpoint.
+
+## Final-state wording cleanup
+
+- [x] Audit every occurrence of `draft`, `working draft`, `placeholder`, `pending`, and incomplete-content messaging in the rendered dashboard and source.
+- [x] Remove the sidebar Working draft card.
+- [x] Remove the hero Draft fields marked status.
+- [x] Replace the context-strip incomplete-fields message with final internal-resource wording.
+- [x] Remove placeholder/draft language from the footer and any visible status labels.
+- [x] Preserve functional pending case-study buttons without presenting the overall website as unfinished.
+- [x] Confirm all three tabs and all existing links/content remain intact.
+- [x] Run type checking and a production build.
+- [x] Verify desktop and mobile presentation plus runtime logs.
+- [ ] Save and deliver a new checkpoint.
