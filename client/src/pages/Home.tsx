@@ -334,7 +334,6 @@ function SchoolTab() {
     return matchesType && matchesCurriculum && haystack.includes(query.toLowerCase());
   }), [query, schoolType, curriculum]);
   const selectedSchool = filteredSchools.find((school) => school.name === selectedSchoolName) ?? filteredSchools[0] ?? null;
-  const showUnavailableCaseStudy = (label: string) => toast.info("Case study link unavailable", { description: `${label} will open when its internal URL is added.` });
   const serviceLinks = [
     { letter: "C", name: "Capstone", url: "https://docs.google.com/spreadsheets/d/1-5cCMCWaZPJdKIdzdWcP7DIftYgqvkhykZR9sZyJwy4/edit?gid=0#gid=0" },
     { letter: "D", name: "Delta", url: "https://www.canva.com/design/DAHTSHjrUKE/7IJruwNRJQnXYDj_lEfeaA/edit" },
@@ -342,17 +341,15 @@ function SchoolTab() {
     { letter: "I", name: "Indigo", url: "https://docs.google.com/spreadsheets/d/1sHMYBCYr5LuMPArG_RpEu2xxbpiOefP8WqTBUaZOJCI/edit?gid=0#gid=0" },
   ];
   const studentCaseStudies = [
-    { student: "Rae Liu", admittedTo: "UC Berkeley" },
-    { student: "Jeremy C.", admittedTo: "Cambridge" },
-    { student: "Kelly C.", admittedTo: "UCL, Leicester, HKU & UST" },
-    { student: "Samson P.", admittedTo: "UChicago" },
-    { student: "Elden Y.", admittedTo: "Imperial & UCL" },
-    { student: "Alexander Y.", admittedTo: "Cornell & KCL" },
-    { student: "Alfred M.", admittedTo: "Yale, UPenn, Brown" },
-    { student: "Alexander L.", admittedTo: "UC Berkeley, NYU & UCL" },
-    { student: "Everie", admittedTo: "Brown" },
-    { student: "Joel", admittedTo: "Oxford" },
-    { student: "Billy", admittedTo: "UC Berkeley" },
+    { student: "Rae Liu", admittedTo: "UC Berkeley", url: "https://drive.google.com/file/d/1XcCuS5Na7I535KyGboQVMPIj-IX6rLIa/view?usp=sharing" },
+    { student: "Jeremy C", admittedTo: "Cambridge", url: "https://drive.google.com/file/d/1AqWhBh4PAlTcXH9vUc7mzJiv-MuFWzpf/view?usp=sharing" },
+    { student: "Kelly C", admittedTo: "UCL, Leicester, HKU & UST", url: "https://drive.google.com/file/d/1gHd7X8VtCK510j9ap-LXZ6X-uJo9w1MD/view?usp=sharing" },
+    { student: "Samson P.", admittedTo: "UChicago", url: "https://drive.google.com/file/d/1otcmYuCh6L3zvp1jT9rBxZ1I8-cTenS9/view?usp=sharing" },
+    { student: "Elden Y.", admittedTo: "Imperial & UCL", url: "https://drive.google.com/file/d/1gPPBm9aBWu1dmkDM3o_dIDuNT5Q8d_g7/view?usp=sharing" },
+    { student: "Alexander Y.", admittedTo: "Cornell & KCL", url: "https://drive.google.com/file/d/1syITik7_rZRFZ8oIlDDpN-GgWSqFB2CU/view?usp=sharing" },
+    { student: "Alfred M.", admittedTo: "Yale, UPenn, Brown", url: "https://drive.google.com/file/d/1d6Yt57-3dUlNZt_ls0ZPfB9nLV5NYXk_/view?usp=sharing" },
+    { student: "Alexander L.", admittedTo: "UC Berkeley, NYU & UCL", url: "https://drive.google.com/drive/folders/1vhOdiTBB0osaQdITUCcMlomFP5uvvA_j?usp=sharing" },
+    { student: "Billy", admittedTo: "UC Berkeley", url: "https://drive.google.com/file/d/1rJ8JNCw0k57wVwmVCSR-_kC-uDyGAaCN/view?usp=sharing" },
   ];
 
   return (
@@ -448,7 +445,7 @@ function SchoolTab() {
                 <tr key={item.student}>
                   <th scope="row">{item.student}</th>
                   <td>{item.admittedTo}</td>
-                  <td><button className="case-study-link-button" onClick={() => showUnavailableCaseStudy(`${item.student} case study`)}>View case study <ExternalLink size={12} /></button></td>
+                  <td><a className="case-study-link-button" href={item.url} target="_blank" rel="noopener noreferrer">View case study <ExternalLink size={12} /></a></td>
                 </tr>
               ))}
             </tbody>

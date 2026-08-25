@@ -159,3 +159,20 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify the revised table in the rendered Tab 2.
 - [ ] Save and deliver a new checkpoint.
+
+## Tab 2 case-study renewal and links — hkstudentcasestudiesss(2).docx
+
+- [x] Extract every screenshot, instruction, student record, and embedded URL from the document without opening any destination.
+- [x] Map each updated record and URL to the exact Tab 2 case-study row or component.
+- [x] Identify all Tab 2 elements explicitly marked to remain unchanged.
+- [x] Renew the table to the latest nine-student order supplied in the document.
+- [x] Remove Everie and Joel because they are absent from the latest version.
+- [x] Update `Jeremy C.` to `Jeremy C` and `Kelly C.` to `Kelly C` to match the latest table.
+- [x] Add the matched Google Drive URL to Rae Liu, Jeremy C, Kelly C, Samson P., Elden Y., Alexander Y., Alfred M., Alexander L., and Billy.
+- [x] Replace all nine placeholder buttons with safe external `View case study` links opening in a new tab.
+- [x] Preserve the confidentiality notice, admissions outcomes, and all unrelated Tab 2 content.
+- [x] Implement only the requested renewals and links without independently shortening or rewriting content.
+- [x] Confirm Tabs 1 and 3 and unrelated Tab 2 sections remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify every renewed record, link destination, rendered interaction, and responsive layout without opening any supplied URL.
+- [ ] Save and deliver a new review checkpoint.
