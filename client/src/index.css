@@ -566,7 +566,8 @@ body { background: #fbfaf9; color: var(--ink); }
 .sidebar-search-results button strong { color: #413b3b; font-size: 11px; }
 .sidebar-search-results p { margin: 0; padding: 11px; color: #8d8686; font-size: 10.5px; }
 .sidebar-home,
-.reference-nav button {
+.reference-nav button,
+.reference-nav a {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -577,6 +578,7 @@ body { background: #fbfaf9; color: var(--ink); }
   background: transparent;
   border: 0;
   border-radius: 5px;
+  text-decoration: none;
 }
 .sidebar-home { align-items: flex-start; margin-bottom: 14px; }
 .sidebar-home span { font-weight: 700; line-height: 1.3; }
@@ -601,8 +603,8 @@ body { background: #fbfaf9; color: var(--ink); }
 .subnav button { padding: 6px 4px; color: #888181; font-size: 10.5px; }
 .subnav button:hover { color: var(--crimson); transform: none; }
 .reference-nav { display: grid; }
-.reference-nav button { width: calc(100% - 16px); cursor: pointer; }
-.reference-nav button:hover { color: var(--crimson); background: #faf5f6; }
+.reference-nav button, .reference-nav a { width: calc(100% - 16px); cursor: pointer; }
+.reference-nav button:hover, .reference-nav a:hover { color: var(--crimson); background: #faf5f6; }
 
 .sidebar-brief {
   display: grid;

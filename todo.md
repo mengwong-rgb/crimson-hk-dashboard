@@ -286,3 +286,14 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify the revised hierarchy on desktop and mobile.
 - [ ] Save and deliver a new checkpoint.
+
+## Quick Access sidebar refinement
+
+- [x] Rename the sidebar heading `REFERENCE` to `QUICK ACCESS`.
+- [x] Preserve Curricula Guide, School Directory, and Competitor Intel unchanged beneath the new heading.
+- [x] Add a fourth shortcut named `Reference` using the supplied Google Doc URL.
+- [x] Make the Reference shortcut open safely in a new browser tab.
+- [x] Preserve every other dashboard element and interaction unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify the Google Doc destination and desktop/mobile sidebar behaviour.
+- [ ] Save and deliver a new checkpoint.

@@ -719,11 +719,12 @@ export default function Home() {
             </div>
           ))}
         </nav>
-        <p className="nav-caption nav-caption-secondary">REFERENCE</p>
+        <p className="nav-caption nav-caption-secondary">QUICK ACCESS</p>
         <div className="reference-nav">
           <button onClick={() => jumpTo("market", "curricula")}><BookOpen size={15} /><span>Curricula guide</span></button>
           <button onClick={() => jumpTo("schools", "school-profiles")}><ShieldCheck size={15} /><span>School directory</span></button>
           <button onClick={() => jumpTo("strategy", "competitors")}><Sparkles size={15} /><span>Competitor intel</span></button>
+          <a href="https://docs.google.com/document/d/1PdQJ8aFMlEGlB0bZ8iSnuLfY5-WLF388E2vz5NG__PM/edit?usp=sharing" target="_blank" rel="noopener noreferrer"><ExternalLink size={15} /><span>Reference</span></a>
         </div>
         <div className="sidebar-footer"><span>Internal access</span><strong>HK Team</strong></div>
       </aside>
