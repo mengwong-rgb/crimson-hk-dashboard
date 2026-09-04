@@ -309,3 +309,12 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify the four-card layout on desktop and mobile.
 - [ ] Save and deliver a new checkpoint.
+
+## Tab 2 school-type label refinement
+
+- [x] Change `International Schools` to `International/Independent Schools` in the school-type filter.
+- [x] Preserve the International-school count, dataset, and filtering behaviour unchanged.
+- [x] Preserve Local Schools and every other dashboard element unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify the longer label and filter behaviour on desktop and mobile.
+- [ ] Save and deliver a new checkpoint.

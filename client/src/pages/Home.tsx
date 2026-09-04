@@ -387,7 +387,7 @@ function SchoolTab() {
         <div className="school-type-switch" aria-label="Filter by school type">
           {(["International", "Local"] as SchoolType[]).map((item) => (
             <button className={schoolType === item ? "active" : ""} onClick={() => { setSchoolType(item); setCurriculum("All"); setQuery(""); }} key={item}>
-              {item} Schools <span>{feederSchools.filter((school) => school.type === item).length}</span>
+              {item === "International" ? "International/Independent Schools" : "Local Schools"} <span>{feederSchools.filter((school) => school.type === item).length}</span>
             </button>
           ))}
         </div>
