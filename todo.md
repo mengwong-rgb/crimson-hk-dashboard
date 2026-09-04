@@ -318,3 +318,15 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify the longer label and filter behaviour on desktop and mobile.
 - [ ] Save and deliver a new checkpoint.
+
+## Header utility cleanup and creator credit
+
+- [x] Remove `Recent` from the dashboard header.
+- [x] Remove `New` from the dashboard header.
+- [x] Remove `Bookmarks` from the dashboard header.
+- [x] Preserve the HK avatar and `HK Team` identity.
+- [x] Add `Created by Wong Meng Hwei - Crimson HK` as a small line beneath `HK Team`.
+- [x] Preserve every other dashboard element and interaction unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify header alignment on desktop and mobile.
+- [ ] Save and deliver a new checkpoint.

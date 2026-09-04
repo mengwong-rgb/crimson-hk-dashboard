@@ -5,16 +5,13 @@
 import {
   AlertTriangle,
   ArrowDown,
-  Bookmark,
   BookOpen,
   Check,
   ChevronDown,
-  Clock3,
   ExternalLink,
   Filter,
   Landmark,
   Menu,
-  Plus,
   Search,
   ShieldCheck,
   Sparkles,
@@ -745,11 +742,8 @@ export default function Home() {
         <header className="workspace-header">
           <div className="atlas-breadcrumb"><button onClick={() => switchTab("market")}>Hong Kong Regional Market Overview</button><span>/</span><strong>{activeConfig.shortTitle}</strong></div>
           <div className="atlas-utility">
-            <button><Clock3 size={15} /><span>Recent</span></button>
-            <button><Plus size={15} /><span>New</span></button>
-            <button><Bookmark size={15} /><span>Bookmarks</span></button>
             <span className="team-avatar">HK</span>
-            <strong>HK Team</strong>
+            <div className="team-identity"><strong>HK Team</strong><small>Created by Wong Meng Hwei - Crimson HK</small></div>
           </div>
         </header>
 

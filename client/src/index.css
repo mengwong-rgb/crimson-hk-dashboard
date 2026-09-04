@@ -640,7 +640,10 @@ body { background: #fbfaf9; color: var(--ink); }
 .atlas-utility button { display: flex; align-items: center; gap: 5px; padding: 7px 9px; color: #655f5f; font-size: 11px; background: transparent; border: 0; border-radius: 5px; }
 .atlas-utility button:hover { color: var(--crimson); background: #faf5f6; }
 .atlas-utility > strong { margin-left: 3px; font-size: 11px; font-weight: 650; }
-.team-avatar { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; margin-left: 8px; color: var(--crimson); font-size: 9px; font-weight: 750; background: var(--crimson-faint); border-radius: 50%; }
+.team-avatar { display: flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 26px; height: 26px; color: var(--crimson); font-size: 9px; font-weight: 750; background: var(--crimson-faint); border-radius: 50%; }
+.team-identity { display: flex; flex-direction: column; justify-content: center; gap: 1px; }
+.team-identity strong { color: #373232; font-size: 11px; font-weight: 700; line-height: 1.2; }
+.team-identity small { color: #918989; font-size: 8.5px; line-height: 1.25; white-space: nowrap; }
 .context-strip { display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 28px; color: #837c7c; font-size: 10.5px; background: #f8f5f4; border-bottom: 1px solid #eee9e8; }
 .context-strip svg { color: var(--crimson); }
 .context-strip span { color: #5d5656; font-weight: 650; }
@@ -769,7 +772,7 @@ body { background: #fbfaf9; color: var(--ink); }
   .workspace-header { min-height: 54px; }
   .atlas-breadcrumb { font-size: 11px; }
   .atlas-breadcrumb button { max-width: 210px; }
-  .atlas-utility button:nth-child(-n+3) { display: none; }
+  .team-identity small { font-size: 7.5px; }
   .context-strip { align-items: flex-start; min-height: auto; padding-top: 9px; padding-bottom: 9px; line-height: 1.35; }
   .context-strip i { display: none; }
   .context-strip span { display: none; }
