@@ -214,3 +214,13 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify every authorized edit and protected area on desktop and mobile.
 - [ ] Save and deliver a new review checkpoint.
+
+## Tab 3 applicant-section hierarchy correction
+
+- [x] Remove `The top-applicant regional blueprint` heading and its description.
+- [x] Change HK Applicant General Characteristics from subsection 02 to 01.
+- [x] Change What Distinguishes a Top Applicant Profile from subsection 03 to 02.
+- [x] Preserve both content blocks and every other dashboard element unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify the corrected hierarchy on desktop and mobile.
+- [ ] Save and deliver a new checkpoint.

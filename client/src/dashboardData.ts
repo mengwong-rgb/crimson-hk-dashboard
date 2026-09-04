@@ -59,7 +59,7 @@ export const tabs: TabConfig[] = [
       "Profile strategy, communication norms, competitor positioning, and localized ECL resources.",
     image: "/manus-storage/hk-strategy-editorial_a7ff22ad.png",
     sections: [
-      { id: "applicant-blueprint", label: "Top applicant blueprint" },
+      { id: "applicant-blueprint", label: "HK applicant characteristics" },
       { id: "communication", label: "Communication playbook" },
       { id: "competitors", label: "Competitor intel" },
       { id: "ecl", label: "Localized ECLs" },
