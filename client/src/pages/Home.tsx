@@ -482,50 +482,6 @@ function StrategyTab() {
   const [competitorQuery, setCompetitorQuery] = useState("");
   const [eclQuery, setEclQuery] = useState("");
   const filteredCompetitors = competitors.filter((competitor) => `${competitor.name} ${competitor.position}`.toLowerCase().includes(competitorQuery.toLowerCase()));
-  const topApplicantCharacteristics = [
-    {
-      title: "Academic Excellence",
-      description: "Academically exceptional; additional grades or test gains may add limited value once the threshold is met.",
-      lever: "Lock academics early. Redirect effort toward specialized research or capstone execution.",
-    },
-    {
-      title: "Formulaic Profile Building",
-      description: "Profile building can become formulaic and participation-heavy rather than original.",
-      lever: "Shift from joining existing programs toward creating original IP and independent output.",
-    },
-    {
-      title: "Limited Personal Depth",
-      description: "Personal stories may lack depth or feel insufficiently personal - can be easily read as “privileged kids with no struggles”.",
-      lever: "Build greater reflection, specificity and personal insight into the narrative.",
-    },
-    {
-      title: "Limited Intellectual Depth",
-      label: "Direct web copy",
-      description: "Strong academic performance may not always translate into clear intellectual depth or an individual point of view.",
-      lever: "Develop subject-specific opinions, questions and personal intellectual insights.",
-    },
-    {
-      title: "Interview Strength",
-      description: "Top HK applicants can generally perform well in interviews.",
-      lever: "Use interviews to reinforce self-awareness, intellectual personality and authentic communication.",
-      source: "Can generally do well in interviews",
-    },
-    {
-      title: "Extracurricular Impact",
-      description: "Extracurricular breadth may be high, while leadership, independent thinking or distinctive mission remain limited.",
-      lever: "Prioritize depth, ownership, leadership and meaningful impact over activity volume.",
-    },
-    {
-      title: "Coachability",
-      description: "Students may be highly receptive to guidance and suggestions.",
-      lever: "Use coachability as an execution advantage while ensuring the final profile remains student-led.",
-    },
-    {
-      title: "Prestige Orientation",
-      description: "School choices may be heavily influenced by ranking and reputation in Hong Kong.",
-      lever: "Frame university choices around fit and opportunity as well as brand recognition.",
-    },
-  ];
   const generalApplicantCharacteristics = [
     {
       title: "Strong academics + reputable school",
@@ -590,23 +546,6 @@ function StrategyTab() {
       <section className="content-section" id="applicant-blueprint">
         <SectionHeading number="01" pattern="Profile strategic lever" title="The top-applicant regional blueprint" description="Convert the HK applicant baseline into a differentiated, credible application profile." />
         <div className="applicant-subsection">
-          <header className="applicant-subhead"><span>01</span><div><p>Regional pattern set</p><h3>HK Top Applicant Characteristics</h3></div></header>
-          <div className="applicant-insight-list">
-            {topApplicantCharacteristics.map((item, index) => (
-              <article className="applicant-insight" key={item.title}>
-                <div className="applicant-insight-title"><span>{String(index + 1).padStart(2, "0")}</span><h4>{item.title}</h4></div>
-                <div className="applicant-insight-copy">
-                  {item.label && <small>{item.label}</small>}
-                  <p>{item.description}</p>
-                  <div className="applicant-lever"><span>Strategic lever</span><p>{item.lever}</p></div>
-                  {item.source && <div className="applicant-source"><span>Original source — preserved</span><p>{item.source}</p></div>}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div className="applicant-subsection">
           <header className="applicant-subhead"><span>02</span><div><p>General baseline</p><h3>HK Applicant General Characteristics</h3></div></header>
           <div className="applicant-insight-list applicant-insight-list-compact">
             {generalApplicantCharacteristics.map((item, index) => (
@@ -627,7 +566,7 @@ function StrategyTab() {
       </section>
 
       <section className="content-section" id="communication">
-        <SectionHeading number="02" pattern="Communication + escalation protocol" title="Cultural navigation playbook" description="How the HK team can make strategy feel visible, responsive and locally credible." />
+        <SectionHeading number="02" pattern="Communication + escalation protocol" title="Hong Kong Client Patterns" description="How the HK team can make strategy feel visible, responsive and locally credible." />
         <div className="communication-grid">
           {communicationRows.map(([title, text]) => <article key={title}><span>{title}</span><p>{text}</p></article>)}
         </div>
@@ -646,6 +585,7 @@ function StrategyTab() {
             <details className="competitor-card" key={competitor.name}>
               <summary><div><span>Battlecard</span><h3>{competitor.name}</h3><p>{competitor.position}</p></div><ChevronDown size={18} /></summary>
               <div className="competitor-detail"><div><StatusPill tone="current">Strength</StatusPill><p>{competitor.strength}</p></div><div><StatusPill tone="critical">Watch-out</StatusPill><p>{competitor.weakness}</p></div></div>
+              <a className="competitor-website-link" href={competitor.website} target="_blank" rel="noopener noreferrer">Official website <ExternalLink size={12} /></a>
             </details>
           ))}
         </div>

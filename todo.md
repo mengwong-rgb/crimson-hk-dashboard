@@ -195,3 +195,22 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify every authorized edit and protected area on desktop and mobile.
 - [ ] Save and deliver a new review checkpoint.
+
+## Tab 3 strict revision — tab3~~~.docx
+
+- [x] Extract every screenshot, annotation, and explicit written instruction from the document.
+- [x] Map each instruction to the exact Tab 3 component or content block.
+- [x] Record every unmentioned Tab 3 area as protected and unchanged.
+- [x] Remove the entire eight-row HK Top Applicant Characteristics block shown in the screenshot.
+- [x] Preserve the remaining applicant-profile content outside that block.
+- [x] Rename `Cultural navigation playbook` to `Hong Kong Client Patterns` only.
+- [x] Add the supplied official website link to all nine competitor cards.
+- [x] Add `棒呆国际教育` beside Bonday Education.
+- [x] Add `三士渡教育` beside Stoooges Education.
+- [x] Remove every occurrence of the five specified ECL resources and preserve every other ECL entry and link.
+- [x] Preserve all remaining competitor, communication, applicant-profile, and ECL content.
+- [x] Implement only explicitly authorized edits without independent rewriting, shortening, removal, or rearrangement.
+- [x] Confirm Tabs 1 and 2 remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify every authorized edit and protected area on desktop and mobile.
+- [ ] Save and deliver a new review checkpoint.

@@ -387,6 +387,8 @@
 .competitor-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border-top: 1px solid var(--rule); }
 .competitor-detail > div { padding: 14px; background: #fcfaf7; }
 .competitor-detail p { margin: 8px 0 0; color: var(--ink-soft); font-size: 11px; line-height: 1.45; }
+.competitor-website-link { display: inline-flex; align-items: center; gap: 6px; margin: 0 18px 18px; padding: 8px 11px; color: var(--crimson); font-size: 10.5px; font-weight: 700; text-decoration: none; background: #fff; border: 1px solid #d8b4bc; border-radius: 4px; transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out); }
+.competitor-website-link:hover { color: #fff; background: var(--crimson); }
 .ecl-grid { display: grid; gap: 10px; }
 .ecl-card { background: white; border: 1px solid var(--rule); box-shadow: var(--shadow-sm); }
 .ecl-card summary { display: flex; align-items: center; justify-content: space-between; padding: 15px 17px; list-style: none; cursor: pointer; }
