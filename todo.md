@@ -224,3 +224,28 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify the corrected hierarchy on desktop and mobile.
 - [ ] Save and deliver a new checkpoint.
+
+## Tab 2 strict revision — tab2~~.docx
+
+- [x] Extract every screenshot, annotation, explicit instruction, and embedded URL from the document.
+- [x] Map each instruction to the exact Tab 2 component or content block.
+- [x] Record every unmentioned Tab 2 area as protected and unchanged.
+- [x] Remove the `HK Case-study link added` status text from Common BU services and add the exact internal-reference disclaimer in that section.
+- [x] Add the supplied UK boarding schools to the common UK boarding-school list.
+- [x] Add the supplied US boarding schools to the common US boarding-school list.
+- [x] Remove the current HK student case-studies disclaimer.
+- [x] Replace the current case-study table with the latest five-column version and all supplied student rows.
+- [x] Extract and match every eBook, webinar, and Common App/UCAS URL from the Word document to the correct student row and column.
+- [x] Update the school-profile field labels to the supplied final wording.
+- [x] Replace the Highflyers metric with all-time US and UK admission-offer metrics.
+- [x] Add the Sept 2026 live-data remark.
+- [x] Change all visible `N/A` values to `Unknown`.
+- [x] Add the supplied CIS special note.
+- [x] Remove the IB results link from school profiles.
+- [x] Update the curriculum and all-time US/UK offer counts for each supplied international and local school.
+- [x] Preserve all unrelated Tab 2 content, plus Tabs 1 and 3, unchanged.
+- [x] Implement only explicitly authorized edits without independent rewriting, shortening, removal, or rearrangement.
+- [x] Confirm Tabs 1 and 3 remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify every authorized edit and protected area on desktop and mobile.
+- [ ] Save and deliver a new review checkpoint.

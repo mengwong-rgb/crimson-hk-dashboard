@@ -791,16 +791,20 @@ body { background: #fbfaf9; color: var(--ink); }
 .external-cta, .service-case-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: 0 0 auto; color: var(--crimson); font-size: 10.5px; font-weight: 700; text-decoration: none; background: #fff; border: 1px solid #d9bcc3; border-radius: 5px; }
 .external-cta { padding: 8px 10px; }
 .external-cta:hover, .service-case-button:hover { color: #fff; background: var(--crimson); border-color: var(--crimson); }
-.school-metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin: 18px 0; overflow: hidden; border: 1px solid var(--rule); border-radius: 6px; }
+.school-metric-grid { display: grid; grid-template-columns: repeat(5, 1fr); margin: 18px 0 8px; overflow: hidden; border: 1px solid var(--rule); border-radius: 6px; }
 .school-metric-grid div { min-width: 0; padding: 12px; background: #fcfbfa; border-right: 1px solid var(--rule); }
 .school-metric-grid div:last-child { border: 0; }
 .school-metric-grid span, .school-metric-grid strong { display: block; }
 .school-metric-grid span { min-height: 25px; color: var(--ink-faint); font-size: 8.5px; font-weight: 700; letter-spacing: .05em; line-height: 1.25; text-transform: uppercase; }
 .school-metric-grid strong { margin-top: 5px; color: var(--crimson); font-size: 20px; line-height: 1.1; }
+.school-data-note { margin: 0 0 18px; color: var(--ink-faint); font-size: 9.5px; font-style: italic; }
 .school-meta-grid { display: grid; grid-template-columns: 1.5fr .7fr .7fr; gap: 10px; margin-bottom: 20px; }
 .school-meta-grid div { padding: 12px; background: #fff; border: 1px solid var(--rule); border-radius: 6px; }
 .school-meta-grid span { color: var(--ink-faint); font-size: 8.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
 .school-meta-grid p { margin: 5px 0 0; color: var(--ink); font-size: 11px; line-height: 1.4; }
+.school-special-note { margin: 0 0 20px; padding: 13px 14px; color: var(--ink-soft); background: #faf8f5; border-left: 3px solid var(--crimson); border-radius: 0 5px 5px 0; }
+.school-special-note strong { color: var(--ink); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
+.school-special-note p { margin: 6px 0 0; font-size: 11px; line-height: 1.55; }
 .school-overview-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 9px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
 .school-overview-head span { color: var(--ink); font-size: 13px; font-weight: 750; }
 .school-overview-head p { margin: 0; color: var(--ink-faint); font-size: 9.5px; }
@@ -929,12 +933,14 @@ body { background: #fbfaf9; color: var(--ink); }
 .case-study-internal-note { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding: 11px 13px; color: #714a11; font-size: 11px; background: #fff8e8; border: 1px solid #ead8ae; border-radius: 6px; }
 .case-study-internal-note svg { flex: 0 0 auto; color: #b77a16; }
 .case-study-table-panel { overflow-x: auto; background: #fff; border: 1px solid var(--rule); border-radius: 7px; }
-.case-study-table { width: 100%; min-width: 720px; border-collapse: collapse; }
+.case-study-table { width: 100%; min-width: 1080px; border-collapse: collapse; }
 .case-study-table th, .case-study-table td { padding: 12px 15px; color: var(--ink-soft); font-size: 11px; line-height: 1.35; text-align: left; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .case-study-table thead th { color: var(--ink); font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; background: #f3f4f7; }
-.case-study-table tbody th { width: 29%; color: var(--ink); font-weight: 700; background: #fcfbfa; }
+.case-study-table tbody th { width: 17%; color: var(--ink); font-weight: 700; background: #fcfbfa; }
 .case-study-table th:last-child, .case-study-table td:last-child { border-right: 0; }
 .case-study-table tbody tr:last-child th, .case-study-table tbody tr:last-child td { border-bottom: 0; }
 .case-study-table tbody tr:hover th, .case-study-table tbody tr:hover td { background: #fdf8f9; }
 .case-study-link-button { display: inline-flex; align-items: center; gap: 5px; padding: 6px 8px; color: var(--crimson); font-size: 9.5px; font-weight: 750; white-space: nowrap; background: var(--crimson-faint); border: 1px solid #e5bcc4; border-radius: 4px; }
 .case-study-link-button:hover { color: #fff; background: var(--crimson); border-color: var(--crimson); }
+.case-study-empty { color: #a7a09b; font-size: 12px; }
+.service-internal-note { margin-bottom: 12px; }

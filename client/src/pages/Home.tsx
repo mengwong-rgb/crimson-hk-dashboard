@@ -32,7 +32,7 @@ import {
   type TabConfig,
   type TabId,
 } from "../dashboardData";
-import { feederSchools, ibResultsUrl, type SchoolType } from "../schoolDirectoryData";
+import { feederSchools, type SchoolType } from "../schoolDirectoryData";
 
 function StatusPill({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "current" | "critical" }) {
   return <span className={`status-pill status-${tone}`}>{children}</span>;
@@ -345,7 +345,7 @@ function SchoolTab() {
   const filteredSchools = useMemo(() => feederSchools.filter((school) => {
     const matchesType = school.type === schoolType;
     const matchesCurriculum = curriculum === "All" || school.curricula.some((item) => item === curriculum || item.includes(curriculum));
-    const haystack = `${school.name} ${school.curricula.join(" ")} ${school.primaryTarget} ${school.academicStrength} ${school.extracurricularEnvironment} ${school.teacherGuidance}`.toLowerCase();
+    const haystack = `${school.name} ${school.curricula.join(" ")} ${school.curriculumDisplay} ${school.primaryTarget} ${school.academicStrength} ${school.extracurricularEnvironment} ${school.teacherGuidance}`.toLowerCase();
     return matchesType && matchesCurriculum && haystack.includes(query.toLowerCase());
   }), [query, schoolType, curriculum]);
   const selectedSchool = filteredSchools.find((school) => school.name === selectedSchoolName) ?? filteredSchools[0] ?? null;
@@ -355,17 +355,25 @@ function SchoolTab() {
     { letter: "R", name: "Rise", url: "https://www.canva.com/design/DAHTSCueyV4/dZVpbyHNQ8AY6wHV7RrhMg/edit" },
     { letter: "I", name: "Indigo", url: "https://docs.google.com/spreadsheets/d/1sHMYBCYr5LuMPArG_RpEu2xxbpiOefP8WqTBUaZOJCI/edit?gid=0#gid=0" },
   ];
-  const studentCaseStudies = [
-    { student: "Rae Liu", admittedTo: "UC Berkeley", url: "https://drive.google.com/file/d/1XcCuS5Na7I535KyGboQVMPIj-IX6rLIa/view?usp=sharing" },
-    { student: "Jeremy C", admittedTo: "Cambridge", url: "https://drive.google.com/file/d/1AqWhBh4PAlTcXH9vUc7mzJiv-MuFWzpf/view?usp=sharing" },
-    { student: "Kelly C", admittedTo: "UCL, Leicester, HKU & UST", url: "https://drive.google.com/file/d/1gHd7X8VtCK510j9ap-LXZ6X-uJo9w1MD/view?usp=sharing" },
-    { student: "Samson P.", admittedTo: "UChicago", url: "https://drive.google.com/file/d/1otcmYuCh6L3zvp1jT9rBxZ1I8-cTenS9/view?usp=sharing" },
-    { student: "Elden Y.", admittedTo: "Imperial & UCL", url: "https://drive.google.com/file/d/1gPPBm9aBWu1dmkDM3o_dIDuNT5Q8d_g7/view?usp=sharing" },
-    { student: "Alexander Y.", admittedTo: "Cornell & KCL", url: "https://drive.google.com/file/d/1syITik7_rZRFZ8oIlDDpN-GgWSqFB2CU/view?usp=sharing" },
-    { student: "Alfred M.", admittedTo: "Yale, UPenn, Brown", url: "https://drive.google.com/file/d/1d6Yt57-3dUlNZt_ls0ZPfB9nLV5NYXk_/view?usp=sharing" },
-    { student: "Alexander L.", admittedTo: "UC Berkeley, NYU & UCL", url: "https://drive.google.com/drive/folders/1vhOdiTBB0osaQdITUCcMlomFP5uvvA_j?usp=sharing" },
-    { student: "Billy", admittedTo: "UC Berkeley", url: "https://drive.google.com/file/d/1rJ8JNCw0k57wVwmVCSR-_kC-uDyGAaCN/view?usp=sharing" },
+  const studentCaseStudies: Array<{ student: string; admittedTo: string; ebook?: string; webinar?: string; application?: string }> = [
+    { student: "Rae L.", admittedTo: "UC Berkeley", application: "https://drive.google.com/file/d/1hsoDwtI3bfyhk6azPWxt0rUoEtBkSy6e/view?usp=sharing" },
+    { student: "Jeremy C", admittedTo: "Cambridge", ebook: "https://assets.crimsoneducation.org/hk-jeremy-c-student-case-study", application: "https://drive.google.com/file/d/1YaSah_1D5Jxi70-aLnrEZpEXUXzPKiuv/view?usp=sharing" },
+    { student: "Kelly C", admittedTo: "UCL, Leicester, HKU & UST", ebook: "https://assets.crimsoneducation.org/hk-kelly-c-student-case-study-ebook", application: "https://drive.google.com/file/d/1tZfVani54CY1XNqoyHXV4nIr8z0Ldacp/view?usp=sharing" },
+    { student: "Samson P.", admittedTo: "UChicago", ebook: "https://assets.crimsoneducation.org/hk-samson-p-student-case-study", application: "https://drive.google.com/file/d/1otcmYuCh6L3zvp1jT9rBxZ1I8-cTenS9/view?usp=sharing" },
+    { student: "Elden Y.", admittedTo: "Imperial & UCL", ebook: "https://assets.crimsoneducation.org/hk-elden-y-student-case-study", webinar: "https://drive.google.com/file/d/1sgUS1maZd9r3tBTgRfGGlaggU_FMHxrp/view?usp=sharing", application: "https://drive.google.com/file/d/1x0T2m89qcHNHMYlbaO_ooUvtcOhnG2ag/view?usp=sharing" },
+    { student: "Alexander Y.", admittedTo: "Cornell & KCL", ebook: "https://assets.crimsoneducation.org/hk-260528-alexander-y-student-case-study", application: "https://drive.google.com/file/d/1uqw7hltl0Fh4VsuJdCL4kkeq0PaVtHsB/view?usp=sharing" },
+    { student: "Alfred M.", admittedTo: "Yale, UPenn, Brown", ebook: "https://assets.crimsoneducation.org/hk-alfred-student-case-study-ebook", application: "https://drive.google.com/file/d/10cE6QAom_QuKvwyhAs7NeTVRKd1i8-3I/view?usp=sharing" },
+    { student: "Alexander L.", admittedTo: "UC Berkeley, NYU & UCL", ebook: "https://assets.crimsoneducation.org/hk-student-case-study-alexander/full-view.html", webinar: "https://drive.google.com/file/d/18llPlIMq9YomWB6P7Rx9vIcfsXERL-F5/view?usp=sharing", application: "https://drive.google.com/drive/folders/1vhOdiTBB0osaQdITUCcMlomFP5uvvA_j?usp=drive_link" },
+    { student: "Everie C.", admittedTo: "Brown", ebook: "https://assets.crimsoneducation.org/hk-student-case-study-everie" },
+    { student: "Joel W.", admittedTo: "Oxford", ebook: "https://assets.crimsoneducation.org/hk-student-case-study-joel/full-view.html" },
+    { student: "Cynthia H.", admittedTo: "Brown", ebook: "https://assets.crimsoneducation.org/hk-student-case-study-cynthia-huang/full-view.html", webinar: "https://drive.google.com/file/d/17Sytkp82cqJzsRVGA_M1ImDEJQY_Y7Gw/view?usp=sharing" },
+    { student: "Michael S.", admittedTo: "Standford", ebook: "https://assets.crimsoneducation.org/hk-us-michael-hk-student-success-stanford/full-view.html", webinar: "https://drive.google.com/file/d/1FHeFaDIZW1bw_Ptn-17j8g64uhcSHJJt/view?usp=sharing" },
+    { student: "Billy M.", admittedTo: "UC Berkeley", application: "https://drive.google.com/file/d/12spkxD6PAw1gIuof29e6bxDJYfCmGNgl/view?usp=sharing" },
+    { student: "Lucas Y.", admittedTo: "Oxford", webinar: "https://drive.google.com/file/d/1EvEjv_dwTdAPNCCFs6GxH-MIrFdt1Zc1/view?usp=sharing" },
   ];
+  const renderCaseStudyAsset = (url: string | undefined) => url
+    ? <a className="case-study-link-button" href={url} target="_blank" rel="noopener noreferrer">View <ExternalLink size={12} /></a>
+    : <span className="case-study-empty">—</span>;
 
   return (
     <div className="tab-content">
@@ -396,7 +404,7 @@ function SchoolTab() {
                 {filteredSchools.map((school) => (
                   <button className={selectedSchool.name === school.name ? "active" : ""} onClick={() => setSelectedSchoolName(school.name)} key={school.name}>
                     <span>{school.name}</span>
-                    <small>{school.curricula.join(" / ")} · {school.primaryTarget}</small>
+                    <small>{school.curriculumDisplay} · {school.primaryTarget}</small>
                   </button>
                 ))}
               </div>
@@ -404,23 +412,25 @@ function SchoolTab() {
             <article className="school-detail-panel">
               <header className="school-detail-header">
                 <div>
-                  <div className="school-detail-tags">{selectedSchool.curricula.map((item) => <span className={`track ${item.toLowerCase().replaceAll("-", "").replaceAll(" ", "")}`} key={item}>{item}</span>)}</div>
+                  <div className="school-detail-tags"><span className={`track ${selectedSchool.curricula[0].toLowerCase().replaceAll("-", "").replaceAll(" ", "")}`}>{selectedSchool.curriculumDisplay}</span></div>
                   <h3>{selectedSchool.name}</h3>
                   <p>{selectedSchool.type} School · Primary target: {selectedSchool.primaryTarget}</p>
                 </div>
-                {selectedSchool.curricula.includes("IB") && <a className="external-cta" href={ibResultsUrl} target="_blank" rel="noreferrer">View IB Results <ExternalLink size={13} /></a>}
               </header>
               <div className="school-metric-grid">
-                <div><span>Crimson HK students</span><strong>{selectedSchool.students}</strong></div>
-                <div><span>Highflyers</span><strong>{selectedSchool.highflyers}</strong></div>
-                <div><span>Counsellors</span><strong>{selectedSchool.counsellors}</strong></div>
-                <div><span>Guidance starts</span><strong>{selectedSchool.guidanceStarts}</strong></div>
+                <div><span>All time Number of Crimson HK students</span><strong>{selectedSchool.students}</strong></div>
+                <div><span>All time US admission offers</span><strong>{selectedSchool.usOffers}</strong></div>
+                <div><span>All time UK admission offers</span><strong>{selectedSchool.ukOffers}</strong></div>
+                <div><span>School Counsellors</span><strong>{selectedSchool.counsellors}</strong></div>
+                <div><span>Counseling guidance starts</span><strong>{selectedSchool.guidanceStarts}</strong></div>
               </div>
+              <p className="school-data-note">As of Sept 2026. Refer to the Hong Kong All Time Student Motherboard for live data.</p>
               <div className="school-meta-grid">
                 <div><span>Counselling environment</span><p>{selectedSchool.counsellingEnvironment}</p></div>
-                <div><span>Curriculum</span><p>{selectedSchool.curricula.join(" / ")}</p></div>
+                <div><span>Curriculum</span><p>{selectedSchool.curriculumDisplay}</p></div>
                 <div><span>Primary target</span><p>{selectedSchool.primaryTarget}</p></div>
               </div>
+              {selectedSchool.specialNote && <aside className="school-special-note"><strong>Special note</strong><p>{selectedSchool.specialNote}</p></aside>}
               <div className="school-overview-head"><span>Overview</span><p>Academic and extracurricular environment</p></div>
               <div className="school-overview-grid">
                 <section><div><span>Academic strength</span><RatingStars rating={selectedSchool.academicRating} /></div><p>{selectedSchool.academicStrength}</p></section>
@@ -438,12 +448,12 @@ function SchoolTab() {
         <div className="boarding-grid">
           <article className="boarding-card">
             <div className="boarding-card-head"><span>US</span><div><p className="mini-label">Boarding pathway</p><h3>US Boarding School</h3></div></div>
-            <dl className="boarding-facts"><dt>Most common US Boarding School</dt><dd>The Hotchkiss School, Phillips Exeter Academy</dd><dt>Crimson HK Students Number</dt><dd><strong>24</strong></dd><dt>Highflyers</dt><dd><strong>11</strong></dd></dl>
+            <dl className="boarding-facts"><dt>Most common US Boarding School</dt><dd>The Hotchkiss School, Phillips Exeter Academy, Phillips Academy Andover, Choate Rosemary Hall, The Lawrenceville School, Deerfield Academy, Groton School, Milton Academy, The Taft School, The Hill School</dd><dt>Crimson HK Students Number</dt><dd><strong>24</strong></dd><dt>Highflyers</dt><dd><strong>11</strong></dd></dl>
             <div className="boarding-analysis"><section><h4><Check size={14} /> Strength of students</h4><ul><li>Strong academic preparation and intellectual confidence</li><li>Strong discussion, communication and critical-thinking skills</li><li>Broad extracurricular exposure across leadership, sport, arts and service</li><li>High independence and maturity from the boarding-school environment</li><li>Familiar with the US college admissions process and holistic applications</li></ul></section><section className="boarding-weakness"><h4><AlertTriangle size={14} /> Weakness of students</h4><ul><li>Harder to stand out within a highly competitive applicant pool</li><li>Strong school support can make applications look similar to peers</li><li>Activities may be broad but lack a distinctive personal spike</li><li>Need a clear individual narrative beyond the boarding-school brand</li><li>High-achieving peer environment can increase pressure around grades and admissions</li></ul></section></div>
           </article>
           <article className="boarding-card">
             <div className="boarding-card-head"><span>UK</span><div><p className="mini-label">Boarding pathway</p><h3>UK Boarding School</h3></div></div>
-            <dl className="boarding-facts"><dt>Most common UK Boarding School</dt><dd>Brighton College, Tonbridge School, Eton College, Dulwich College, Caterham School</dd><dt>Crimson HK Students Number</dt><dd><strong>143</strong></dd><dt>Highflyers</dt><dd><strong>60</strong></dd></dl>
+            <dl className="boarding-facts"><dt>Most common UK Boarding School</dt><dd>Brighton College, Tonbridge School, Eton College, Dulwich College, Caterham School, Wycombe Abbey, Sevenoaks School, Cardiff Sixth Form College, Harrow School, Cheltenham Ladies' College</dd><dt>Crimson HK Students Number</dt><dd><strong>143</strong></dd><dt>Highflyers</dt><dd><strong>60</strong></dd></dl>
             <div className="boarding-analysis"><section><h4><Check size={14} /> Strength of students</h4><ul><li>Strong academic depth and subject mastery</li><li>Strong preparation for rigorous university-level study</li><li>High independence, discipline and time-management skills</li><li>Strong co-curricular exposure across leadership, sport, arts and service</li><li>Well prepared for UK university applications and academically focused pathways</li></ul></section><section className="boarding-weakness"><h4><AlertTriangle size={14} /> Weakness of students</h4><ul><li>Academic profile may be stronger than the extracurricular profile needed for US admissions</li><li>Early subject specialisation can reduce academic breadth for US applications</li><li>Less familiarity with US-style personal branding and holistic admissions</li><li>Activities may need stronger evidence of individual impact, initiative and leadership</li><li>Need to translate UK achievements and qualifications clearly for US admissions readers</li></ul></section></div>
           </article>
         </div>
@@ -451,16 +461,17 @@ function SchoolTab() {
 
       <section className="content-section" id="student-case-studies">
         <SectionHeading number="03" pattern="Internal outcome reference" title="Hong Kong Student Case Studies" description="A concise index of HK student outcomes and the corresponding internal case-study records." />
-        <div className="case-study-internal-note"><AlertTriangle size={17} /><strong>Internal reference only — please do not share externally</strong></div>
         <div className="case-study-table-panel">
           <table className="case-study-table">
-            <thead><tr><th>HK Student</th><th>Admitted to</th><th>Case Study Link</th></tr></thead>
+            <thead><tr><th>Hong Kong Student</th><th>Admitted to</th><th>eBook</th><th>Student Sharing Webinar</th><th>Common App/UCAS</th></tr></thead>
             <tbody>
               {studentCaseStudies.map((item) => (
                 <tr key={item.student}>
                   <th scope="row">{item.student}</th>
                   <td>{item.admittedTo}</td>
-                  <td><a className="case-study-link-button" href={item.url} target="_blank" rel="noopener noreferrer">View case study <ExternalLink size={12} /></a></td>
+                  <td>{renderCaseStudyAsset(item.ebook)}</td>
+                  <td>{renderCaseStudyAsset(item.webinar)}</td>
+                  <td>{renderCaseStudyAsset(item.application)}</td>
                 </tr>
               ))}
             </tbody>
@@ -470,8 +481,9 @@ function SchoolTab() {
 
       <section className="content-section" id="services">
         <SectionHeading number="04" pattern="Service reference cards" title="Common BU services in HK" description="" />
+        <div className="case-study-internal-note service-internal-note"><span aria-hidden="true">⚠️</span><strong>Internal reference only — please do not share externally</strong></div>
         <div className="service-grid">
-          {serviceLinks.map(({ letter, name, url }) => <article className="service-card" key={name}><span>{letter}</span><div><StatusPill tone="current">HK case-study link added</StatusPill><h3>{name}</h3><a className="service-case-button" href={url} target="_blank" rel="noopener noreferrer">View HK case studies <ExternalLink size={12} /></a></div></article>)}
+          {serviceLinks.map(({ letter, name, url }) => <article className="service-card" key={name}><span>{letter}</span><div><h3>{name}</h3><a className="service-case-button" href={url} target="_blank" rel="noopener noreferrer">View HK case studies <ExternalLink size={12} /></a></div></article>)}
         </div>
       </section>
     </div>
