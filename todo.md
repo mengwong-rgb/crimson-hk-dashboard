@@ -249,3 +249,15 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify every authorized edit and protected area on desktop and mobile.
 - [ ] Save and deliver a new review checkpoint.
+
+## Useful Links tab
+
+- [x] Add a fourth dashboard tab named `Useful Links` to the main navigation.
+- [x] Add the Hong Kong All Time Student Motherboard link exactly as supplied.
+- [x] Add the IB Results 2026 link exactly as supplied.
+- [x] Make both resources open safely in a new browser tab.
+- [x] Preserve Tabs 1–3 and all existing content unchanged.
+- [x] Verify both external destinations and the new tab navigation.
+- [x] Run type checking and a production build.
+- [x] Verify the new tab on desktop and mobile.
+- [ ] Save and deliver a new checkpoint.

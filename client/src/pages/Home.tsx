@@ -618,9 +618,52 @@ function StrategyTab() {
   );
 }
 
+function UsefulLinksTab() {
+  const usefulLinks = [
+    {
+      title: "Hong Kong All Time Student Motherboard",
+      description: "Internal all-time Hong Kong student data reference.",
+      label: "Student data",
+      url: "https://docs.google.com/spreadsheets/d/1hnAFyJWHwEru2pr1rA-Wpc827ATLfp6Ol2YDimz13bc/edit?gid=762249227#gid=762249227",
+    },
+    {
+      title: "IB Results 2026",
+      description: "Hong Kong schools reference for 2026 IB results.",
+      label: "Academic results",
+      url: "https://www.hk-schools.com/post/hong-kong-ib-results-2026",
+    },
+  ];
+
+  return (
+    <div className="tab-content">
+      <section className="content-section" id="useful-links">
+        <SectionHeading
+          number="01"
+          pattern="Quick-access reference library"
+          title="Useful Links"
+          description="Frequently used Hong Kong resources for internal team reference."
+        />
+        <div className="useful-links-grid">
+          {usefulLinks.map((item, index) => (
+            <article className="useful-link-card" key={item.title}>
+              <div className="useful-link-index">0{index + 1}</div>
+              <div className="useful-link-copy">
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <a href={item.url} target="_blank" rel="noopener noreferrer">Open resource <ExternalLink size={13} /></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
 export default function Home() {
   const requestedTab = new URLSearchParams(window.location.search).get("tab");
-  const initialTab: TabId = requestedTab === "schools" || requestedTab === "strategy" ? requestedTab : "market";
+  const initialTab: TabId = requestedTab === "schools" || requestedTab === "strategy" || requestedTab === "useful" ? requestedTab : "market";
   const [activeTab, setActiveTab] = useState<TabId>(initialTab);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [globalQuery, setGlobalQuery] = useState("");
@@ -710,6 +753,7 @@ export default function Home() {
           {activeTab === "market" && <MarketTab />}
           {activeTab === "schools" && <SchoolTab />}
           {activeTab === "strategy" && <StrategyTab />}
+          {activeTab === "useful" && <UsefulLinksTab />}
         </div>
 
         <footer className="site-footer"><span>Crimson Education Hong Kong</span><p>Internal use only. Prepared for Crimson Education HK team members.</p></footer>

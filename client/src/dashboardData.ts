@@ -3,7 +3,7 @@
  * Data is distilled from the user's draft HTML and content documents; draft fields remain explicit.
  */
 
-export type TabId = "market" | "schools" | "strategy";
+export type TabId = "market" | "schools" | "strategy" | "useful";
 
 export type SectionLink = {
   id: string;
@@ -63,6 +63,17 @@ export const tabs: TabConfig[] = [
       { id: "communication", label: "Communication playbook" },
       { id: "competitors", label: "Competitor intel" },
       { id: "ecl", label: "Localized ECLs" },
+    ],
+  },
+  {
+    id: "useful",
+    eyebrow: "Tab 04",
+    title: "Useful Links",
+    shortTitle: "Useful links",
+    summary: "Quick access to frequently used Hong Kong student data and education references.",
+    image: "",
+    sections: [
+      { id: "useful-links", label: "Useful links" },
     ],
   },
 ];

@@ -389,6 +389,21 @@
 .competitor-detail p { margin: 8px 0 0; color: var(--ink-soft); font-size: 11px; line-height: 1.45; }
 .competitor-website-link { display: inline-flex; align-items: center; gap: 6px; margin: 0 18px 18px; padding: 8px 11px; color: var(--crimson); font-size: 10.5px; font-weight: 700; text-decoration: none; background: #fff; border: 1px solid #d8b4bc; border-radius: 4px; transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out); }
 .competitor-website-link:hover { color: #fff; background: var(--crimson); }
+
+/* Tab 4 — compact quick-access library for approved HK team resources. */
+.useful-links-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.useful-link-card { display: grid; grid-template-columns: 54px minmax(0, 1fr); overflow: hidden; background: #fff; border: 1px solid var(--rule); border-radius: 7px; }
+.useful-link-index { display: flex; align-items: flex-start; justify-content: center; padding-top: 22px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .06em; background: var(--crimson); }
+.useful-link-copy { padding: 21px; }
+.useful-link-copy > span { color: var(--crimson); font-size: 9px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.useful-link-copy h3 { margin: 7px 0 6px; color: var(--ink); font-size: 18px; line-height: 1.25; }
+.useful-link-copy p { margin: 0; color: var(--ink-soft); font-size: 11.5px; line-height: 1.5; }
+.useful-link-copy a { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; padding: 8px 11px; color: var(--crimson); font-size: 10.5px; font-weight: 750; text-decoration: none; background: var(--crimson-faint); border: 1px solid #dfb9c1; border-radius: 5px; }
+.useful-link-copy a:hover { color: #fff; background: var(--crimson); border-color: var(--crimson); }
+
+@media (max-width: 760px) {
+  .useful-links-grid { grid-template-columns: 1fr; }
+}
 .ecl-grid { display: grid; gap: 10px; }
 .ecl-card { background: white; border: 1px solid var(--rule); box-shadow: var(--shadow-sm); }
 .ecl-card summary { display: flex; align-items: center; justify-content: space-between; padding: 15px 17px; list-style: none; cursor: pointer; }
