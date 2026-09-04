@@ -105,7 +105,7 @@ function MarketTab() {
         <SectionHeading
           number="01"
           pattern="Trend card + client persona"
-          title="Regional market overview"
+          title="Regional Market Overview"
           description="The current outbound picture and the client behaviours the HK team should expect."
         />
 
@@ -198,7 +198,7 @@ function MarketTab() {
         <SectionHeading
           number="02"
           pattern="Curricula matrix + age-grade map"
-          title="Regional curricula comparison"
+          title="Regional Curricula Comparison"
           description="A compact reference for comparing the four systems most commonly seen by Crimson HK."
         />
         <article className="panel table-panel">
@@ -248,7 +248,7 @@ function MarketTab() {
         <SectionHeading
           number="03"
           pattern="Timeline conflict alert + gateway guide"
-          title="Higher-education timelines & local pathways"
+          title="Higher-Education Timelines & Local Pathways"
           description="The operational bottleneck is the overlap between UK, US and HK application systems."
         />
         <article className="timeline-alert">
@@ -381,7 +381,7 @@ function SchoolTab() {
         <SectionHeading
           number="01"
           pattern="Searchable feeder-school intelligence"
-          title="Institutional profiles by school type and curriculum"
+          title="Institutional Profiles by School Type and Curriculum"
           description="Select a school to review its academic, extracurricular and counselling environment."
         />
         <div className="school-type-switch" aria-label="Filter by school type">
@@ -422,7 +422,7 @@ function SchoolTab() {
                 <div><span>All time US admission offers</span><strong>{selectedSchool.usOffers}</strong></div>
                 <div><span>All time UK admission offers</span><strong>{selectedSchool.ukOffers}</strong></div>
                 <div><span>School Counsellors</span><strong>{selectedSchool.counsellors}</strong></div>
-                <div><span>Counseling guidance starts</span><strong>{selectedSchool.guidanceStarts}</strong></div>
+                <div><span>Counselling guidance starts</span><strong>{selectedSchool.guidanceStarts}</strong></div>
               </div>
               <p className="school-data-note">As of Sept 2026. Refer to the Hong Kong All Time Student Motherboard for live data.</p>
               <div className="school-meta-grid">
@@ -444,7 +444,7 @@ function SchoolTab() {
       </section>
 
       <section className="content-section" id="boarding">
-        <SectionHeading number="02" pattern="Boarding-school comparison" title="US & UK boarding-school pipelines" description="Compare common schools, HK student volume, strengths and application watch-outs." />
+        <SectionHeading number="02" pattern="Boarding-school comparison" title="US & UK Boarding-School Pipelines" description="Compare common schools, HK student volume, strengths and application watch-outs." />
         <div className="boarding-grid">
           <article className="boarding-card">
             <div className="boarding-card-head"><span>US</span><div><p className="mini-label">Boarding pathway</p><h3>US Boarding School</h3></div></div>
@@ -480,7 +480,7 @@ function SchoolTab() {
       </section>
 
       <section className="content-section" id="services">
-        <SectionHeading number="04" pattern="Service reference cards" title="Common BU services in HK" description="" />
+        <SectionHeading number="04" pattern="Service reference cards" title="Common BU Services in HK" description="" />
         <div className="case-study-internal-note service-internal-note"><span aria-hidden="true">⚠️</span><strong>Internal reference only — please do not share externally</strong></div>
         <div className="service-grid">
           {serviceLinks.map(({ letter, name, url }) => <article className="service-card" key={name}><span>{letter}</span><div><h3>{name}</h3><a className="service-case-button" href={url} target="_blank" rel="noopener noreferrer">View HK case studies <ExternalLink size={12} /></a></div></article>)}
@@ -589,7 +589,7 @@ function StrategyTab() {
       </section>
 
       <section className="content-section" id="competitors">
-        <SectionHeading number="03" pattern="Sales battlecards" title="Local competitor intelligence" description="A concise positioning reference. Historical notes should be revalidated before active sales use." />
+        <SectionHeading number="03" pattern="Sales battlecards" title="Local Competitor Intelligence" description="A concise positioning reference. Historical notes should be revalidated before active sales use." />
         <label className="search-field competitor-search"><Search size={16} /><input value={competitorQuery} onChange={(event) => setCompetitorQuery(event.target.value)} placeholder="Search competitors" /></label>
         <div className="competitor-grid">
           {filteredCompetitors.map((competitor) => (
@@ -604,7 +604,7 @@ function StrategyTab() {
       </section>
 
       <section className="content-section" id="ecl">
-        <SectionHeading number="04" pattern="Searchable localized resource library" title="Localized ECL opportunities" description="A structured list of HK opportunities." />
+        <SectionHeading number="04" pattern="Searchable localized resource library" title="Localized ECL Opportunities" description="A structured list of HK opportunities." />
         <label className="search-field ecl-search"><Search size={16} /><input value={eclQuery} onChange={(event) => setEclQuery(event.target.value)} placeholder="Search opportunities" /></label>
         <div className="ecl-grid">
           {eclGroups.map((group) => {
@@ -709,7 +709,7 @@ export default function Home() {
             )) : <p>No matching sections.</p>}
           </div>
         )}
-        <div className="sidebar-home"><Landmark size={15} /><span>HK Dashboard</span></div>
+        <div className="sidebar-home"><Landmark size={15} /><span>Hong Kong Regional Market Overview</span></div>
         <p className="nav-caption">MARKET INTELLIGENCE</p>
         <nav className="primary-nav" aria-label="Dashboard tabs">
           {tabs.map((tab) => (
@@ -730,7 +730,7 @@ export default function Home() {
 
       <main className="workspace">
         <header className="workspace-header">
-          <div className="atlas-breadcrumb"><button onClick={() => switchTab("market")}>HK Dashboard</button><span>/</span><strong>{activeConfig.shortTitle}</strong></div>
+          <div className="atlas-breadcrumb"><button onClick={() => switchTab("market")}>Hong Kong Regional Market Overview</button><span>/</span><strong>{activeConfig.shortTitle}</strong></div>
           <div className="atlas-utility">
             <button><Clock3 size={15} /><span>Recent</span></button>
             <button><Plus size={15} /><span>New</span></button>

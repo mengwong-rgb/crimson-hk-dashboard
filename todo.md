@@ -261,3 +261,19 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify the new tab on desktop and mobile.
 - [ ] Save and deliver a new checkpoint.
+
+## Dashboard design-layout revision — design_layout.docx
+
+- [x] Extract every screenshot, annotation, and explicit layout instruction from the document.
+- [x] Map each instruction to the exact shared shell, tab, section, or component.
+- [x] Record all finalized content, links, and data as protected and unchanged.
+- [x] Replace visible `HK Dashboard` shell labels with `Hong Kong Regional Market Overview`.
+- [x] Replace visible American-English `counseling` with British-English `counselling`.
+- [x] Convert every shared section subtopic title to consistent Title Case.
+- [x] Standardize every shared section subtopic title to the same bold weight and aligned spacing shown in the reference.
+- [x] Preserve all finalized body copy, data, links, tables, filters, and interactions.
+- [x] Implement only the authorized layout and visual-design changes.
+- [x] Confirm all four tabs retain their finalized content and working links.
+- [x] Run type checking and a production build.
+- [x] Verify desktop and mobile layouts plus core interactions and runtime logs.
+- [ ] Save and deliver a new review checkpoint.
