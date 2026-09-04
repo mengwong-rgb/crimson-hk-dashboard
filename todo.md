@@ -277,3 +277,12 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify desktop and mobile layouts plus core interactions and runtime logs.
 - [ ] Save and deliver a new review checkpoint.
+
+## Tab 3 applicant-heading refinement
+
+- [x] Make `HK Applicant General Characteristics` visibly bold as a subtopic heading.
+- [x] Remove the `02` number from `What Distinguishes a Top Applicant Profile` while preserving its heading text and content.
+- [x] Preserve all other Tab 3 content and every other dashboard area unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify the revised hierarchy on desktop and mobile.
+- [ ] Save and deliver a new checkpoint.

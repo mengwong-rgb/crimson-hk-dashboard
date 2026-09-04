@@ -557,7 +557,7 @@ function StrategyTab() {
     <div className="tab-content">
       <section className="content-section" id="applicant-blueprint">
         <div className="applicant-subsection">
-          <header className="applicant-subhead"><span>01</span><div><p>General baseline</p><h3>HK Applicant General Characteristics</h3></div></header>
+          <header className="applicant-subhead applicant-subhead-primary"><span>01</span><div><p>General baseline</p><h3>HK Applicant General Characteristics</h3></div></header>
           <div className="applicant-insight-list applicant-insight-list-compact">
             {generalApplicantCharacteristics.map((item, index) => (
               <article className="applicant-insight" key={item.title}>
@@ -569,7 +569,7 @@ function StrategyTab() {
         </div>
 
         <article className="distinguishing-panel">
-          <header className="applicant-subhead"><span>02</span><div><p>Profile benchmark</p><h3>What Distinguishes a Top Applicant Profile</h3></div></header>
+          <header className="applicant-subhead applicant-subhead-no-number"><div><p>Profile benchmark</p><h3>What Distinguishes a Top Applicant Profile</h3></div></header>
           <div className="distinguishing-grid">
             {distinguishingTraits.map((trait, index) => <div key={trait}><span>{String(index + 1).padStart(2, "0")}</span><p>{trait}</p></div>)}
           </div>

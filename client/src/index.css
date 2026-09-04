@@ -899,7 +899,8 @@ body { background: #fbfaf9; color: var(--ink); }
 .applicant-subhead > span { color: var(--crimson); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
 .applicant-subhead > span::after { display: block; width: 34px; height: 2px; margin-top: 7px; content: ""; background: var(--crimson); }
 .applicant-subhead p { margin: 0 0 4px; color: var(--ink-faint); font-size: 8.5px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
-.applicant-subhead h3 { margin: 0; color: var(--ink); font-size: clamp(19px, 2.2vw, 25px); line-height: 1.15; }
+.applicant-subhead h3 { margin: 0; color: var(--ink); font-size: clamp(19px, 2.2vw, 25px); font-weight: 800; line-height: 1.15; }
+.applicant-subhead-no-number { grid-template-columns: minmax(0, 1fr); }
 .applicant-insight-list { overflow: hidden; background: #fff; border: 1px solid var(--rule); border-radius: 7px; }
 .applicant-insight { display: grid; grid-template-columns: minmax(190px, .72fr) minmax(0, 1.5fr); border-bottom: 1px solid var(--rule); }
 .applicant-insight:last-child { border-bottom: 0; }
