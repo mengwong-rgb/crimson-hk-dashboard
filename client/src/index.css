@@ -281,7 +281,7 @@
 .legend-dot.international { background: var(--crimson); }
 .legend-dot.jupas { background: #2f6f9f; }
 .timeline-scroll { overflow-x: auto; overflow-y: hidden; padding: 46px 4px 48px; }
-.timeline-grid-extended { min-width: 1140px; margin: 0; gap: 62px 12px; }
+.timeline-grid-extended { min-width: 1600px; margin: 0; gap: 62px 12px; }
 .timeline-grid-extended .timeline-line { background: #dcc9a9; }
 .timeline-line .jupas-marker { background: #2f6f9f; box-shadow: 0 0 0 1px #2f6f9f; }
 .timeline-line .international-marker { background: var(--crimson); box-shadow: 0 0 0 1px var(--crimson); }
@@ -289,6 +289,7 @@
 .timeline-line i.marker-top small { top: auto; bottom: 25px; }
 .timeline-grid-extended .timeline-line i b, .timeline-grid-extended .timeline-line i small { width: 112px; text-align: center; }
 .timeline-grid-extended .hk-timeline-line i b, .timeline-grid-extended .hk-timeline-line i small { width: 104px; }
+.ranking-source { margin: 10px 20px 18px; color: var(--ink-soft); font-size: 10.5px; font-style: italic; }
 .local-pathway-intro { display: flex; align-items: flex-start; gap: 10px; margin-top: 18px; padding: 15px 17px; color: var(--ink); background: #f7f5f4; border: 1px solid var(--rule); border-radius: 7px; }
 .local-pathway-intro svg { flex: 0 0 auto; color: var(--crimson); }
 .local-pathway-intro span { display: block; margin-bottom: 3px; font-size: 12px; font-weight: 700; }

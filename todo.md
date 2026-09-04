@@ -176,3 +176,22 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify every renewed record, link destination, rendered interaction, and responsive layout without opening any supplied URL.
 - [ ] Save and deliver a new review checkpoint.
+
+## Tab 1 strict revision — Untitleddocument.docx
+
+- [x] Extract every screenshot, annotation, and explicit written instruction from the document.
+- [x] Map each instruction to the exact Tab 1 component or content block.
+- [x] Record every unmentioned Tab 1 area as protected and unchanged.
+- [x] Keep the existing timeline design and every non-repeated timeline milestone.
+- [x] Update the main UCAS deadline to 14 January.
+- [x] Add Start of UCAS decisions — 31 March and Final UCAS decisions — 13 May.
+- [x] Replace the generic US early-round item with the supplied EA/ED timeline and add all supplied US/UC decision milestones.
+- [x] Update CUHK Non-JUPAS regular round to 8 January 2026.
+- [x] Show HKU and HKUST Non-JUPAS admissions as rolling basis rather than regular-round deadlines.
+- [x] Add `Source from QS World University Rankings 2027` beneath the existing local-university ranking table.
+- [x] Preserve all other Tab 1 content and design unchanged.
+- [x] Implement only explicitly authorized edits without independent rewriting, shortening, removal, or rearrangement.
+- [x] Confirm Tabs 2 and 3 remain unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify every authorized edit and protected area on desktop and mobile.
+- [ ] Save and deliver a new review checkpoint.

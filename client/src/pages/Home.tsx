@@ -260,23 +260,37 @@ function MarketTab() {
             <div className="timeline-grid timeline-grid-extended">
               <span className="timeline-label">UK</span>
               <div className="timeline-line">
-                <i className="timeline-point international-marker marker-top" style={{ left: "9%" }}><b>15 Oct 2025</b><small>Oxbridge + Med</small></i>
-                <i className="timeline-point international-marker" style={{ left: "63%" }}><b>13 Jan 2026</b><small>Main UCAS</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "5%" }}><b>15 Oct 2025</b><small>Oxbridge + Med</small></i>
+                <i className="timeline-point international-marker" style={{ left: "42%" }}><b>14 Jan 2026</b><small>UCAS deadline</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "74%" }}><b>31 Mar 2026</b><small>Start of UCAS decisions</small></i>
+                <i className="timeline-point international-marker" style={{ left: "87%" }}><b>13 May 2026</b><small>Final UCAS decisions</small></i>
               </div>
               <span className="timeline-label">US</span>
-              <div className="timeline-line"><i className="timeline-point international-marker" style={{ left: "18%" }}><b>1 Nov 2025</b><small>Early round</small></i></div>
+              <div className="timeline-line">
+                <i className="timeline-point international-marker" style={{ left: "10%" }}><b>Nov 2025</b><small>EA / ED deadline</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "20%" }}><b>30 Nov 2025</b><small>UC admission deadline</small></i>
+                <i className="timeline-point international-marker" style={{ left: "30%" }}><b>Dec 2025</b><small>EA / ED Results I</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "42%" }}><b>Jan 2026</b><small>Regular Decision deadline</small></i>
+                <i className="timeline-point international-marker" style={{ left: "52%" }}><b>Feb 2026</b><small>ED Results II</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "62%" }}><b>Mar 2026</b><small>UC results</small></i>
+                <i className="timeline-point international-marker" style={{ left: "70%" }}><b>Mid-Mar 2026</b><small>Regular Decision results</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "80%" }}><b>Early Apr 2026</b><small>Regular Decision results</small></i>
+              </div>
               <span className="timeline-label">HK</span>
               <div className="timeline-line hk-timeline-line">
-                <i className="timeline-point jupas-marker marker-top" style={{ left: "2%" }}><b>9 Oct 2025</b><small>JUPAS opens</small></i>
-                <i className="timeline-point international-marker" style={{ left: "27%" }}><b>13 Nov 2025</b><small>CUHK early</small></i>
-                <i className="timeline-point international-marker marker-top" style={{ left: "34%" }}><b>20 Nov 2025</b><small>HKUST first round</small></i>
-                <i className="timeline-point international-marker" style={{ left: "41%" }}><b>26 Nov 2025</b><small>HKU early round</small></i>
-                <i className="timeline-point jupas-marker marker-top" style={{ left: "48%" }}><b>3 Dec 2025</b><small>JUPAS deadline · 5 PM</small></i>
-                <i className="timeline-point jupas-marker" style={{ left: "57%" }}><b>2 Jan 2026</b><small>DSE editing</small></i>
-                <i className="timeline-point jupas-marker marker-top" style={{ left: "75%" }}><b>22 Apr 2026</b><small>Late / account reactivation</small></i>
-                <i className="timeline-point jupas-marker" style={{ left: "82%" }}><b>27 May 2026</b><small>Choice reorder · 5 PM</small></i>
-                <i className="timeline-point jupas-marker marker-top" style={{ left: "91%" }}><b>15 Jul 2026</b><small>Recheck results</small></i>
-                <i className="timeline-point jupas-marker" style={{ left: "98%" }}><b>5 Aug 2026</b><small>Main-round offers</small></i>
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "1%" }}><b>9 Oct 2025</b><small>JUPAS opens</small></i>
+                <i className="timeline-point international-marker" style={{ left: "10%" }}><b>13 Nov 2025</b><small>CUHK early</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "17%" }}><b>20 Nov 2025</b><small>HKUST first round</small></i>
+                <i className="timeline-point international-marker" style={{ left: "24%" }}><b>26 Nov 2025</b><small>HKU early round</small></i>
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "31%" }}><b>3 Dec 2025</b><small>JUPAS deadline · 5 PM</small></i>
+                <i className="timeline-point jupas-marker" style={{ left: "40%" }}><b>2 Jan 2026</b><small>DSE editing</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "47%" }}><b>8 Jan 2026</b><small>CUHK regular round</small></i>
+                <i className="timeline-point international-marker" style={{ left: "54%" }}><b>Rolling basis</b><small>HKUST Non-JUPAS</small></i>
+                <i className="timeline-point international-marker marker-top" style={{ left: "61%" }}><b>Rolling basis</b><small>HKU Non-JUPAS</small></i>
+                <i className="timeline-point jupas-marker" style={{ left: "74%" }}><b>22 Apr 2026</b><small>Late / account reactivation</small></i>
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "82%" }}><b>27 May 2026</b><small>Choice reorder · 5 PM</small></i>
+                <i className="timeline-point jupas-marker" style={{ left: "91%" }}><b>15 Jul 2026</b><small>Recheck results</small></i>
+                <i className="timeline-point jupas-marker marker-top" style={{ left: "98%" }}><b>5 Aug 2026</b><small>Main-round offers</small></i>
               </div>
             </div>
           </div>
@@ -309,6 +323,7 @@ function MarketTab() {
               <tbody><tr><th scope="row">HKU</th><td>11</td></tr><tr><th scope="row">CUHK</th><td>18</td></tr><tr><th scope="row">HKUST</th><td>33</td></tr></tbody>
             </table>
           </div>
+          <p className="ranking-source">Source from QS World University Rankings 2027</p>
         </article>
       </section>
     </div>
