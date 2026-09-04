@@ -330,3 +330,15 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify header alignment on desktop and mobile.
 - [ ] Save and deliver a new checkpoint.
+
+## Navigation section-label Title Case
+
+- [x] Change Tab 1 labels to `Market Overview`, `Curricula Comparison`, and `Timelines & Pathways`.
+- [x] Apply matching Title Case to every Tab 2 section label.
+- [x] Apply matching Title Case to every Tab 3 section label.
+- [x] Apply matching Title Case to the Tab 4 section label.
+- [x] Confirm each label updates in both the left sidebar and right `In This Tab` panel.
+- [x] Preserve all section IDs, navigation behaviour, content, links, and data unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify all four tabs on desktop and mobile.
+- [ ] Save and deliver a new checkpoint.

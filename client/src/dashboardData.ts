@@ -30,9 +30,9 @@ export const tabs: TabConfig[] = [
       "Outbound demand, HK client expectations, curricula comparison, and the local application gateway.",
     image: "/manus-storage/hk-curricula-editorial_a31abd88.png",
     sections: [
-      { id: "market-overview", label: "Market overview" },
-      { id: "curricula", label: "Curricula comparison" },
-      { id: "pathways", label: "Timelines & pathways" },
+      { id: "market-overview", label: "Market Overview" },
+      { id: "curricula", label: "Curricula Comparison" },
+      { id: "pathways", label: "Timelines & Pathways" },
     ],
   },
   {
@@ -44,10 +44,10 @@ export const tabs: TabConfig[] = [
       "Institutional context, counselling environments, boarding-school pipelines, and HK service assets.",
     image: "/manus-storage/hk-school-pathways-editorial_bf4c772a.png",
     sections: [
-      { id: "school-profiles", label: "School profiles" },
-      { id: "boarding", label: "Boarding pipelines" },
-      { id: "student-case-studies", label: "HK student case studies" },
-      { id: "services", label: "BU services" },
+      { id: "school-profiles", label: "School Profiles" },
+      { id: "boarding", label: "Boarding Pipelines" },
+      { id: "student-case-studies", label: "HK Student Case Studies" },
+      { id: "services", label: "BU Services" },
     ],
   },
   {
@@ -59,9 +59,9 @@ export const tabs: TabConfig[] = [
       "Profile strategy, communication norms, competitor positioning, and localized ECL resources.",
     image: "/manus-storage/hk-strategy-editorial_a7ff22ad.png",
     sections: [
-      { id: "applicant-blueprint", label: "HK applicant characteristics" },
-      { id: "communication", label: "Communication playbook" },
-      { id: "competitors", label: "Competitor intel" },
+      { id: "applicant-blueprint", label: "HK Applicant Characteristics" },
+      { id: "communication", label: "Communication Playbook" },
+      { id: "competitors", label: "Competitor Intel" },
       { id: "ecl", label: "Localized ECLs" },
     ],
   },
@@ -73,7 +73,7 @@ export const tabs: TabConfig[] = [
     summary: "Quick access to frequently used Hong Kong student data and education references.",
     image: "",
     sections: [
-      { id: "useful-links", label: "Useful links" },
+      { id: "useful-links", label: "Useful Links" },
     ],
   },
 ];
