@@ -313,7 +313,7 @@ function MarketTab() {
           </article>
         </div>
         <article className="panel local-ranking-panel">
-          <div className="table-intro"><div><span className="mini-label">Local university reference</span><h3>Hong Kong local university ranking</h3></div></div>
+          <div className="table-intro"><div><span className="mini-label">Local university reference</span><h3>Hong Kong Local University Ranking</h3></div></div>
           <div className="table-scroll">
             <table className="data-table local-ranking-table">
               <thead><tr><th>University</th><th>Ranking</th></tr></thead>

@@ -342,3 +342,11 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify all four tabs on desktop and mobile.
 - [ ] Save and deliver a new checkpoint.
+
+## Tab 1 university-ranking heading capitalization
+
+- [x] Change `Hong Kong local university ranking` to `Hong Kong Local University Ranking`.
+- [x] Preserve the ranking values, QS 2027 source line, and every other dashboard element unchanged.
+- [x] Run type checking and a production build.
+- [x] Verify the corrected heading in the rendered Tab 1.
+- [ ] Save and deliver a new checkpoint.
