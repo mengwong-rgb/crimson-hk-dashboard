@@ -632,6 +632,18 @@ function UsefulLinksTab() {
       label: "Academic results",
       url: "https://www.hk-schools.com/post/hong-kong-ib-results-2026",
     },
+    {
+      title: "26-27 consolidated HK's Int'l School Calendar",
+      description: "Consolidated Hong Kong international-school calendar reference.",
+      label: "School calendar",
+      url: "https://drive.google.com/file/d/1wksYduekss012tpYft-KyatHDIam3E5G/view?usp=sharing",
+    },
+    {
+      title: "Hong Kong International Schools Guide",
+      description: "Hong Kong international-schools guide for team reference.",
+      label: "Schools guide",
+      url: "https://drive.google.com/file/d/1u4nb81fj2IP4ZVlRupXzPEUwxq4jaye8/view?usp=sharing",
+    },
   ];
 
   return (

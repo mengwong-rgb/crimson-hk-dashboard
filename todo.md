@@ -297,3 +297,15 @@ Interaction verification: searching `HKUST` correctly returns four STEM resource
 - [x] Run type checking and a production build.
 - [x] Verify the Google Doc destination and desktop/mobile sidebar behaviour.
 - [ ] Save and deliver a new checkpoint.
+
+## Useful Links expansion — calendar and schools guide
+
+- [x] Add `26-27 consolidated HK's Int'l School Calendar` using the exact supplied Google Drive URL.
+- [x] Add `Hong Kong International Schools Guide` using the exact supplied Google Drive URL.
+- [x] Preserve the existing Student Motherboard and IB Results 2026 cards unchanged.
+- [x] Make both new resources open safely in separate browser tabs.
+- [x] Preserve every other dashboard tab, link, and interaction unchanged.
+- [x] Verify both Google Drive destinations and all four rendered Useful Links cards.
+- [x] Run type checking and a production build.
+- [x] Verify the four-card layout on desktop and mobile.
+- [ ] Save and deliver a new checkpoint.
